@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Bob zijn website!</title>
+        <title>Bob zijn website! werkt dit echt zo snel</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
