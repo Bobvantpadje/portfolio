@@ -40,6 +40,6 @@ export const Header = styled('h1')<IBoxProps & VariantProps>(
 
 Header.defaultProps = {
   color: 'complementary',
-  fontWeight: 5
-  // variant: 'h1'
+  fontWeight: 5,
+  variant: 'h1'
 };
