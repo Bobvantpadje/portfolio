@@ -4,6 +4,7 @@ import styles from 'styles/Home.module.css';
 import { Box } from 'styles/StyledComponents/Box';
 import { Header } from 'styles/StyledComponents/Text/Header';
 import { Button } from 'styles/StyledComponents/Input/Button';
+import { Paragraph } from 'styles/StyledComponents/Text/Paragraph';
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Box display="flex">
         <Button>Primary button</Button>
       </Box>
+      <Paragraph>Dit is paragrap</Paragraph>
     </Box>
   );
 }

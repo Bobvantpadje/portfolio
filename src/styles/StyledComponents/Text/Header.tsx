@@ -6,19 +6,24 @@ type VariantProps = { variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' };
 
 const variants = {
   h1: {
-    fontSize: [11]
+    fontSize: [8],
+    lineHeight: [7]
   },
   h2: {
-    fontSize: [10]
+    fontSize: [7],
+    lineHeight: [6]
   },
   h3: {
-    fontSize: [9]
+    fontSize: [6],
+    lineHeight: [5]
   },
   h4: {
-    fontSize: [8]
+    fontSize: [5],
+    lineHeight: [4]
   },
   h5: {
-    fontSize: [3]
+    fontSize: [4],
+    lineHeight: [3]
   }
 };
 

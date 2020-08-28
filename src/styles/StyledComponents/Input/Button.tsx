@@ -6,17 +6,21 @@ type VariantProps = { variant?: 'primary' | 'secondary' };
 
 const variants = {
   primary: {
+    backgroundSize: '200% 100%',
+    backgroundPosition: 'right bottom',
     bg: 'primary',
     border: '1px solid',
     borderColor: 'complementary',
     color: 'complementary',
     '&:hover': {
-      color: 'primary',
-      borderColor: 'primary',
-      bg: 'complementary'
+      backgroundPosition: 'left bottom',
+      color: 'primary'
+    },
+    '&:active': {
+      background: 'complementary',
+      transform: 'scale(0.9)'
     }
-  },
-  secondary: {}
+  }
 };
 
 type IStyledButtonProps = IBoxProps & VariantProps;
@@ -35,12 +39,15 @@ const StyledButton = styled('button')<IStyledButtonProps>(
   background,
   flexbox,
   variant({ variants }),
-  () => ({
+  (props: any) => ({
     '&:hover': {
       cursor: 'pointer'
     },
     outline: 'none',
-    transition: '.3s ease-in'
+    transition: 'background .3s ease-in, transform .1s',
+    background: `linear-gradient(to right, ${props.theme.colors.complementary} 50%, ${props.theme.colors.primary} 50%)`,
+    backgroundSize: '200% 100%',
+    backgroundPosition: 'right bottom'
   })
 );
 
