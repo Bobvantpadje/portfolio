@@ -23,10 +23,6 @@ import {
   flexbox,
   FlexboxProps,
 } from "styled-system";
-// const textDecoration = system({
-//   prop: 'textDecoration',
-//   cssProperty: 'textDecoration',
-// })
 
 type customProps = {
   textDecoration?: string;
