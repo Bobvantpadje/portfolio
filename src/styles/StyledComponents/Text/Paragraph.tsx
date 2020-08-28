@@ -18,8 +18,8 @@ export const Paragraph = styled('h1')<IBoxProps>(
 );
 
 Paragraph.defaultProps = {
-  fontSize: [3, 2],
-  lineHeight: [2, 1],
+  fontSize: [2, 2, 2, 3],
+  lineHeight: [1, 1, 1, 2],
   fontWeight: 1,
   color: 'complementary'
 };

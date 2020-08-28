@@ -8,8 +8,15 @@ export const colors = {
   text: '#F1F3F8'
 };
 
+export const breakPoints = {
+  mobile: '48rem', // 768px
+  ipadPortrait: '48rem', // 1024px
+  ipadLandscape: '90rem', // 1440px
+  hd: '120rem' // 1920px
+};
+
 export const theme = {
-  breakpoints: ['48rem', '64rem', '90rem', '120rem'],
+  breakpoints: [...Object.values(breakPoints)],
   fonts: {
     Montserrat: `Montserrat`,
     Jura: `jura`
