@@ -11,9 +11,12 @@
   "dependencies": {
     "@emotion/core": "^10.0.35",
     "@emotion/styled": "^10.0.27",
+    "@types/styled-system": "^5.1.10",
+    "emotion-theming": "^10.0.27",
     "next": "9.5.2",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "styled-system": "^5.1.5"
   },
   "devDependencies": {
     "@types/node": "^14.6.1",
