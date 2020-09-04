@@ -6,6 +6,7 @@ import { Header } from 'styles/StyledComponents/Text/Header';
 import { Button } from 'styles/StyledComponents/Input/Button';
 import { Paragraph } from 'styles/StyledComponents/Text/Paragraph';
 import { AnimatedHeader, LETTER_DELAY_TIME } from 'styles/StyledComponents/Animated/AnimatedHeader';
+import { useState, useEffect } from 'react';
 
 const helloText = "Hi, i'm Thomas Koster.";
 
@@ -13,40 +14,45 @@ const Home: React.FC = () => {
   return (
     <Box bg="primary" width="100%" minHeight="100vh" padding={3}>
       <AnimatedHeader color="text" text={helloText} />
-      <AnimatedHeader text="User experience designer" initialDelay={helloText.split(' ').length * LETTER_DELAY_TIME} />
+      <AnimatedWordList
+        words={['User experience designer', 'User interaction designer', 'Music enthusiast']}
+        initialDelay={helloText.split(' ').length * LETTER_DELAY_TIME * 1000}
+      />
     </Box>
   );
 };
 
+interface IAnimatedWordListProps {
+  words: string[];
+  initialDelay?: number;
+}
+const AnimatedWordList: React.FC<IAnimatedWordListProps> = ({ words = [], initialDelay = 0 }) => {
+  const [indexToShow, setIndexToShow] = useState(0);
+  const [showComponent, setShowComponent] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowComponent(true);
+    }, initialDelay);
+  }, [initialDelay]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndexToShow((index) => index + 1);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  if (!showComponent) return null;
+
+  return (
+    <>
+      {words.map((word, index) => {
+        if (index !== indexToShow % words.length) return null;
+        return <AnimatedHeader key={word} text={word} />;
+      })}
+    </>
+  );
+};
+
 export default Home;
-
-// interface IAnimatedHeaderProps {
-//   text: string;
-//   animationType?: 'per-word';
-// }
-
-// const splitArrayPerWord = (text: string) => text.split(' ');
-// const createAnimatedWord = (word: string, index: number) => {
-//   const wordSpacing = index === 0 ? '' : ' ';
-//   const delay = index * 0.2;
-//   return (
-//     <Header
-//       whiteSpace="pre"
-//       key={index}
-//       initial={{ y: 50, opacity: 0 }}
-//       animate={{ y: 0, opacity: 1 }}
-//       transition={{ delay }}
-//       display="inline-block">
-//       {wordSpacing}
-//       {word}
-//     </Header>
-//   );
-// };
-
-// const AnimatedHeader: React.FC<IAnimatedHeaderProps> = ({ text, animationType = 'per-word' }) => {
-//   if (animationType === 'per-word') {
-//     const wordArray = splitArrayPerWord(text).map(createAnimatedWord);
-//     return <>{wordArray}</>;
-//   }
-//   return <Header>{text}</Header>;
-// };
