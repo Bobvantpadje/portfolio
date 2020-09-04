@@ -1,5 +1,5 @@
 // import styled from 'styled-components'
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 import {
   shadow,
   grid,
@@ -21,12 +21,13 @@ import {
   TypographyProps,
   BackgroundProps,
   flexbox,
-  FlexboxProps,
-} from "styled-system";
+  FlexboxProps
+} from 'styled-system';
 
 type customProps = {
   textDecoration?: string;
   cursor?: string;
+  visibility?: string;
 };
 
 export type IBoxProps = ColorProps &
@@ -54,10 +55,9 @@ export const Box = styled.div<IBoxProps>`
   ${typography}
   ${background}
   ${flexbox}
-  ${system(
-    {
-      textDecoration: true,
-      cursor: true,
-    }
-  )}
+  ${system({
+    textDecoration: true,
+    cursor: true,
+    visibility: true
+  })}
 `;

@@ -1,8 +1,9 @@
 import styled from '@emotion/styled';
 import { background, border, color, flexbox, grid, layout, position, shadow, space, system, typography, variant } from 'styled-system';
 import { IBoxProps } from '../Box';
+import { motion } from 'framer-motion';
 
-type VariantProps = { variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' };
+type VariantProps = { variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5'; whiteSpace?: string };
 
 const variants = {
   h1: {
@@ -28,7 +29,7 @@ const variants = {
 };
 
 //@ts-expect-error
-export const Header = styled('h1')<IBoxProps & VariantProps>(
+export const Header = styled(motion.h1)<IBoxProps & VariantProps>(
   color,
   position,
   space,
@@ -40,7 +41,10 @@ export const Header = styled('h1')<IBoxProps & VariantProps>(
   typography,
   background,
   flexbox,
-  variant({ variants })
+  variant({ variants }),
+  system({
+    whiteSpace: true
+  })
 );
 
 Header.defaultProps = {
