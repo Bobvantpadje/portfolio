@@ -5,7 +5,6 @@ import { Box } from 'styles/StyledComponents/Box';
 import { Header } from 'styles/StyledComponents/Text/Header';
 import { Button } from 'styles/StyledComponents/Input/Button';
 import { Paragraph } from 'styles/StyledComponents/Text/Paragraph';
-import { AnimatedTitle } from 'styles/StyledComponents/Animated/Title';
 
 const StylingSetup: React.FC = () => {
   return (
@@ -21,9 +20,6 @@ const StylingSetup: React.FC = () => {
         <Button>Primary button</Button>
       </Box>
       <Paragraph>Dit is paragrap</Paragraph>
-      <Box mt={6}>
-        <AnimatedTitle />
-      </Box>
     </Box>
   );
 };
