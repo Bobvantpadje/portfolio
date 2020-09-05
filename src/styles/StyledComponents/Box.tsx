@@ -28,6 +28,7 @@ type customProps = {
   textDecoration?: string;
   cursor?: string;
   visibility?: string;
+  backdropFilter?: string;
 };
 
 export type IBoxProps = ColorProps &
@@ -58,6 +59,7 @@ export const Box = styled.div<IBoxProps>`
   ${system({
     textDecoration: true,
     cursor: true,
-    visibility: true
+    visibility: true,
+    backdropFilter: true
   })}
 `;
