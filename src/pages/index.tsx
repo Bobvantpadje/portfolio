@@ -19,6 +19,14 @@ const Home: React.FC = () => {
         words={['User experience designer', 'User interaction designer', 'Music enthusiast']}
         initialDelay={helloText.split(' ').length * LETTER_DELAY_TIME * 1000}
       />
+      <Paragraph>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae accusamus soluta officiis quos sunt veritatis nobis veniam ipsa
+        voluptatibus cumque, alias ipsam expedita impedit repellat quas aliquam quasi? Quam, esse.
+      </Paragraph>
+      <Paragraph>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae accusamus soluta officiis quos sunt veritatis nobis veniam ipsa
+        voluptatibus cumque, alias ipsam expedita impedit repellat quas aliquam quasi? Quam, esse.
+      </Paragraph>
     </Box>
   );
 };
