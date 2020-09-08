@@ -23,7 +23,7 @@ const sidebar = {
 
 const variants = {
   open: {
-    transition: { staggerChildren: 0.07, delayChildren: 0.5, }
+    transition: { staggerChildren: 0.07, delayChildren: 0.5 }
   },
   closed: {
     transition: { staggerChildren: 0.05, staggerDirection: -1 }
@@ -51,6 +51,7 @@ export const OverlayMenu: React.FC<IOverlayMenuProps> = ({ show }) => {
       justifyContent="center"
       alignItems="center"
       variants={sidebar}
+      overflow="hidden"
       animate={show ? 'open' : 'closed'}>
       <MotionBox display="grid" gridGap={5} variants={variants}>
         <MenuItem>item 1</MenuItem>
@@ -58,6 +59,16 @@ export const OverlayMenu: React.FC<IOverlayMenuProps> = ({ show }) => {
         <MenuItem>item 3</MenuItem>
         <MenuItem>item 4</MenuItem>
       </MotionBox>
+      <Box
+        bg="complementary"
+        // width="115%"
+        width="110%"
+        borderRadius="110% 28% 0 0 / 75% 7% 0 0"
+        position="absolute"
+        bottom="-85px"
+        // width="100%"
+        height="150px"
+      />
     </MotionBox>,
     document.body
   );
