@@ -56,7 +56,7 @@ export const OverlayMenu: React.FC<IOverlayMenuProps> = ({ show, items }) => {
       animate={show ? 'open' : 'closed'}>
       <MotionBox display="grid" gridGap={5} variants={variants}>
         {items.map((item) => (
-          <MenuItem key={item.text}>{item.text}</MenuItem>
+          <MenuItem key={item.text} url={item.url}>{item.text}</MenuItem>
         ))}
       </MotionBox>
       <Box

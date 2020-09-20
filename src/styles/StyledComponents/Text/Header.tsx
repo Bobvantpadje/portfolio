@@ -45,7 +45,8 @@ export const Header = styled(motion.h1)<IHeaderProps>(
   flexbox,
   variant({ variants }),
   system({
-    whiteSpace: true
+    whiteSpace: true,
+    cursor: true
   })
 );
 

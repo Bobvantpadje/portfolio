@@ -1,3 +1,5 @@
+import { useRouter } from 'next/dist/client/router';
+import Link from 'next/link';
 import React from 'react';
 import { Header } from 'styles/StyledComponents/Text/Header';
 const variants = {
@@ -17,10 +19,23 @@ const variants = {
   }
 };
 
-export const MenuItem: React.FC = ({ children }) => {
+interface IMenuItemProps {
+  url: string;
+}
+export const MenuItem: React.FC<IMenuItemProps> = ({ children, url }) => {
+  const Router = useRouter();
+
   return (
-    <Header variant="h2" variants={variants} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-      {children}
-    </Header>
+    <Link href={url}>
+      <Header
+        cursor="pointer"
+        variant="h2"
+        variants={variants}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        color={url === Router.route ? 'complementary' : 'text'}>
+        {children}
+      </Header>
+    </Link>
   );
 };
