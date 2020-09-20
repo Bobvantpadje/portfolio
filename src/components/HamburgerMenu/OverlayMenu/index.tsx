@@ -31,8 +31,9 @@ const variants = {
 };
 interface IOverlayMenuProps {
   show: boolean;
+  items: HamburgerMenu.MenuItem[];
 }
-export const OverlayMenu: React.FC<IOverlayMenuProps> = ({ show }) => {
+export const OverlayMenu: React.FC<IOverlayMenuProps> = ({ show, items }) => {
   const [body, setBody] = useState(false);
   useEffect(() => {
     setBody(true);
@@ -54,10 +55,9 @@ export const OverlayMenu: React.FC<IOverlayMenuProps> = ({ show }) => {
       overflow="hidden"
       animate={show ? 'open' : 'closed'}>
       <MotionBox display="grid" gridGap={5} variants={variants}>
-        <MenuItem>item 1</MenuItem>
-        <MenuItem>item 2</MenuItem>
-        <MenuItem>item 3</MenuItem>
-        <MenuItem>item 4</MenuItem>
+        {items.map((item) => (
+          <MenuItem key={item.text}>{item.text}</MenuItem>
+        ))}
       </MotionBox>
       <Box
         bg="complementary"

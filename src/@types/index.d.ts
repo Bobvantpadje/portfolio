@@ -26,3 +26,8 @@ type IBoxProps = ColorProps &
 interface Hekkie {
   hooi: string;
 }
+
+interface MenuItem {
+  url: string;
+  text: string;
+}
