@@ -66,7 +66,6 @@ export const OverlayMenu: React.FC<IOverlayMenuProps> = ({ show, items }) => {
         borderRadius="110% 28% 0 0 / 75% 7% 0 0"
         position="absolute"
         bottom="-85px"
-        // width="100%"
         height="150px"
       />
     </MotionBox>,

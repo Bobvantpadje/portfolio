@@ -29,7 +29,7 @@ export const MenuItem: React.FC<IMenuItemProps> = ({ children, url }) => {
     <Link href={url}>
       <Header
         cursor="pointer"
-        variant="h2"
+        variant="h1"
         variants={variants}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}

@@ -8,7 +8,7 @@ import { Paragraph } from 'styles/StyledComponents/Text/Paragraph';
 
 const StylingSetup: React.FC = () => {
   return (
-    <Box bg="primary" width="100%" minHeight="100vh" padding="5rem">
+    <Box bg="primary" width="100%" padding="5rem">
       <Header initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
         Dit is de header 1
       </Header>
