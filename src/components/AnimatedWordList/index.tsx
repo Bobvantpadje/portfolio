@@ -10,12 +10,14 @@ export const AnimatedWordList: React.FC<IAnimatedWordListProps> = ({ words = [],
   const [indexToShow, setIndexToShow] = useState(0);
   const [showComponent, setShowComponent] = useState(false);
 
+  // If needed, delay initially
   useEffect(() => {
     setTimeout(() => {
       setShowComponent(true);
     }, initialDelay);
   }, [initialDelay]);
 
+  // Change text to show every 3 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setIndexToShow((index) => index + 1);
