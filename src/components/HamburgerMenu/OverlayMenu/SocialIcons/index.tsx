@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { FacebookIcon } from 'icons/facebook';
 import React, { FC } from 'react';
+import { MotionBox } from 'styles/StyledComponents/Animated/MotionBox';
 import { Box } from 'styles/StyledComponents/Box';
 
 export const SocialIcons: FC = () => {
@@ -28,7 +29,8 @@ IconContainer.defaultProps = {
   mr: [2]
 };
 
-const GreenBottomBorder = styled(Box)``;
+// const GreenBottomBorder = styled(Box)``;
+const GreenBottomBorder = styled(MotionBox)``;
 GreenBottomBorder.defaultProps = {
   bg: 'complementary',
   width: '200vw',

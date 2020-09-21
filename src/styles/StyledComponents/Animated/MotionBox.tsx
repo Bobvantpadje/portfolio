@@ -1,36 +1,48 @@
 // import styled from 'styled-components'
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
-
 import {
-  shadow,
-  grid,
-  GridProps,
-  ShadowProps,
+  background, border, color,
+
+
+
+
+
+
+
+
+
+
+
+
+
+  flexbox, grid,
+
+
+
+
+
+
+  layout, position, shadow,
+
+
+
   space,
-  color,
+
   system,
-  position,
-  layout,
-  border,
-  typography,
-  background,
-  PositionProps,
-  ColorProps,
-  SpaceProps,
-  LayoutProps,
-  BorderProps,
-  TypographyProps,
-  BackgroundProps,
-  flexbox,
-  FlexboxProps
+
+
+
+  typography
 } from 'styled-system';
+
 
 type customProps = {
   textDecoration?: string;
   cursor?: string;
   visibility?: string;
   backdropFilter?: string;
+  transform?: string;
 };
 
 // @ts-expect-error
@@ -50,6 +62,7 @@ export const MotionBox = styled(motion.div)<IBoxProps>`
     textDecoration: true,
     cursor: true,
     visibility: true,
-    backdropFilter: true
+    backdropFilter: true,
+    transform: true
   })}
 `;

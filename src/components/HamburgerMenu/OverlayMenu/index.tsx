@@ -61,7 +61,8 @@ export const OverlayMenu: React.FC<IOverlayMenuProps> = ({ show, items }) => {
 
 const MenuOverlay = styled(MotionBox)``;
 MenuOverlay.defaultProps = {
-  height: '100vh',
+  // height: '100vh',
+  minHeight: '-webkit-fill-available',
   width: '100vw',
   bg: 'primary',
   position: 'absolute',
