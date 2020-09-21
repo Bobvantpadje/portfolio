@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import { MotionBox } from 'styles/StyledComponents/Animated/MotionBox';
 import { MenuItem } from './MenuItem';
 import { Box } from 'styles/StyledComponents/Box';
+import styled from '@emotion/styled';
+import { SocialIcons } from './SocialIcons';
 
 const sidebar = {
   open: {
@@ -41,34 +43,44 @@ export const OverlayMenu: React.FC<IOverlayMenuProps> = ({ show, items }) => {
 
   if (!body) return null;
   return ReactDOM.createPortal(
-    <MotionBox
-      height="100vh"
-      width="100vw"
-      bg="primary"
-      position="absolute"
-      top={0}
-      display="flex"
-      flexDirection="column"
-      justifyContent="center"
-      alignItems="center"
-      variants={sidebar}
-      overflow="hidden"
-      animate={show ? 'open' : 'closed'}>
+    <MenuOverlay variants={sidebar} animate={show ? 'open' : 'closed'}>
       <MotionBox display="grid" gridGap={5} variants={variants}>
         {items.map((item) => (
-          <MenuItem key={item.text} url={item.url}>{item.text}</MenuItem>
+          <MenuItem key={item.text} url={item.url}>
+            {item.text}
+          </MenuItem>
         ))}
       </MotionBox>
-      <Box
-        bg="complementary"
-        // width="115%"
-        width="110%"
-        borderRadius="110% 28% 0 0 / 75% 7% 0 0"
-        position="absolute"
-        bottom="-85px"
-        height="150px"
-      />
-    </MotionBox>,
+      <SocialIcons />
+      {/* <GreenBottomBorder /> */}
+      {/* <Box bg="complementary" width="110%" borderRadius="110% 28% 0 0 / 75% 7% 0 0" position="absolute" bottom="-85px" height="150px" /> */}
+    </MenuOverlay>,
     document.body
   );
 };
+
+const MenuOverlay = styled(MotionBox)``;
+MenuOverlay.defaultProps = {
+  height: '100vh',
+  width: '100vw',
+  bg: 'primary',
+  position: 'absolute',
+  top: 0,
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  overflow: 'hidden'
+};
+
+// const GreenBottomBorder = styled(Box)``;
+// GreenBottomBorder.defaultProps = {
+//   bg: 'complementary',
+//   width: '200vw',
+//   height: '154vw',
+//   transform: 'rotate(9.6deg)',
+//   borderRadius: '60% 40% 40% 60% / 50% 40% 60% 60%',
+//   bottom: '-125vw',
+//   left: '-36vw',
+//   position: 'absolute'
+// };

@@ -29,6 +29,7 @@ type customProps = {
   cursor?: string;
   visibility?: string;
   backdropFilter?: string;
+  transform?: string;
 };
 
 export type IBoxProps = ColorProps &
@@ -60,6 +61,7 @@ export const Box = styled.div<IBoxProps>`
     textDecoration: true,
     cursor: true,
     visibility: true,
-    backdropFilter: true
+    backdropFilter: true,
+    transform: true
   })}
 `;
