@@ -29,7 +29,6 @@ IconContainer.defaultProps = {
   mr: [2]
 };
 
-// const GreenBottomBorder = styled(Box)``;
 const GreenBottomBorder = styled(MotionBox)``;
 GreenBottomBorder.defaultProps = {
   bg: 'complementary',
@@ -39,5 +38,24 @@ GreenBottomBorder.defaultProps = {
   borderRadius: '60% 40% 40% 60% / 50% 40% 60% 60%',
   bottom: '-130vw',
   left: '-36vw',
-  position: 'absolute'
+  position: 'absolute',
+  variants: {
+    open: {
+      y: 0,
+      opacity: 1,
+      rotate: 6.9,
+      transition: {
+        duration: 1,
+        delay: 0.5
+      }
+    },
+    closed: {
+      y: 200,
+      opacity: 0,
+      rotate: 60,
+      transition: {
+        duration: 1
+      }
+    }
+  }
 };
