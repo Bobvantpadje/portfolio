@@ -1,5 +1,5 @@
 import { motion, useElementScroll, useSpring, useTransform, useViewportScroll } from 'framer-motion';
-import React, { FC, useEffect, useRef, useState } from 'react';
+import React, { Dispatch, FC, SetStateAction, useEffect, useRef, useState } from 'react';
 import { MotionBox } from 'styles/StyledComponents/Animated/MotionBox';
 import { Box } from 'styles/StyledComponents/Box';
 import { Header } from 'styles/StyledComponents/Text/Header';
@@ -40,40 +40,40 @@ const About: FC = () => {
 
 export default About;
 
-const AboutItem: FC<{ title: string; content: string }> = ({ title, content }) => {
-  const ref = useRef<HTMLDivElement>(null);
+const refIsInView = ({ y = 0, ref = { current: {} } }: { y: number; ref: React.RefObject<HTMLDivElement> | { current: any } }) => {
+  if (!ref.current) return false;
+  const topIsInView = y + window.innerHeight >= ref.current?.offsetTop + ref.current?.clientHeight;
+  const bottomIsInView = y <= ref.current.offsetTop + ref.current.offsetHeight - 100;
+  return topIsInView && bottomIsInView;
+};
+
+const showItemIfInView = (setState: Dispatch<SetStateAction<boolean>>, ref: React.RefObject<HTMLDivElement>) => (y: number) => {
+  const isInView = refIsInView({ y, ref });
+  setState(isInView);
+};
+
+const variants = {
+  show: {
+    opacity: 1,
+    y: 0
+  },
+  hide: {
+    opacity: 0,
+    y: 100
+  }
+};
+
+const AboutItem: FC<{ title: string; content: string }> = React.memo(({ title, content }) => {
   const boxRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useViewportScroll();
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    scrollY.onChange((y) => {
-      if (!ref.current || !boxRef.current) return;
-      const isInView =
-        y + window.innerHeight >= boxRef.current?.offsetTop + boxRef.current?.clientHeight &&
-        y <= boxRef.current.offsetTop + boxRef.current.offsetHeight - 100;
-      if (isInView && !show) {
-        setShow(true);
-      }
-      if (!isInView && show) {
-        setShow(false);
-      }
-    });
-  }, [scrollY, show]);
-
-  const variants = {
-    show: {
-      opacity: 1,
-      y: 0
-    },
-    hide: {
-      opacity: 0,
-      y: 100
-    }
-  };
+    scrollY.onChange(showItemIfInView(setShow, boxRef));
+  }, [scrollY]);
 
   return (
-    <Box display="flex" ref={ref}>
+    <Box display="flex">
       <Box width="50%" display="flex" justifyContent="center" alignItems="center">
         <MotionBox
           ref={boxRef}
@@ -97,4 +97,4 @@ const AboutItem: FC<{ title: string; content: string }> = ({ title, content }) =
       </Box>
     </Box>
   );
-};
+});
