@@ -10,15 +10,7 @@ const loremText =
 
 const About: FC = () => {
   const ref = useRef<HTMLDivElement>(null);
-  //   const { scrollY } = useElementScroll(ref);
   const { scrollYProgress, scrollY } = useViewportScroll();
-  //   const yRange = useTransform(scrollYProgress, [0, 0.9], [0, 1]);
-  //   const pathLength = useSpring(yRange, { stiffness: 400, damping: 90 });
-
-  //   useEffect(() => {
-  //     // console.log('parent', scrollYProgress);
-  //     scrollY.onChange(console.log);
-  //   }, [scrollY]);
 
   return (
     <Box ref={ref}>
@@ -37,15 +29,6 @@ const About: FC = () => {
             scaleX: -1 // Reverse direction of line animation
           }}
         />
-        {/* <motion.path
-          fill="none"
-          strokeWidth="5"
-          stroke="white"
-          d="M14,26 L 22,33 L 35,16"
-          initial={false}
-          strokeDasharray="0 1"
-          animate={{ pathLength: isComplete ? 1 : 0 }}
-        /> */}
       </svg>
       <Header>About</Header>
       <AboutItem title="title1" content={loremText} />
@@ -62,15 +45,13 @@ const AboutItem: FC<{ title: string; content: string }> = ({ title, content }) =
   const boxRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useViewportScroll();
   const [show, setShow] = useState(false);
-  //   console.log(title, scrollY);
-  // console.log('ref', ref);
+
   useEffect(() => {
     scrollY.onChange((y) => {
       if (!ref.current || !boxRef.current) return;
-      //   console.log('y', y);
-      //   console.log('bottom om element', ref.current.offsetTop + ref.current.offsetHeight);
-      const isInView = y >= ref.current?.offsetTop - 200 && y <= boxRef.current.offsetTop + boxRef.current.offsetHeight - 200;
-      //   const isInView = y >= ref.current?.offsetTop;
+      const isInView =
+        y + window.innerHeight >= boxRef.current?.offsetTop + boxRef.current?.clientHeight &&
+        y <= boxRef.current.offsetTop + boxRef.current.offsetHeight - 100;
       if (isInView && !show) {
         setShow(true);
       }
@@ -83,17 +64,11 @@ const AboutItem: FC<{ title: string; content: string }> = ({ title, content }) =
   const variants = {
     show: {
       opacity: 1,
-      y: 0,
-      transition: {
-        duration: 1
-      }
+      y: 0
     },
     hide: {
       opacity: 0,
-      y: 100,
-      transition: {
-        duration: 1
-      }
+      y: 100
     }
   };
 
@@ -102,17 +77,14 @@ const AboutItem: FC<{ title: string; content: string }> = ({ title, content }) =
       <Box width="50%" display="flex" justifyContent="center" alignItems="center">
         <MotionBox
           ref={boxRef}
-          //   initial={false}
+          initial={false}
+          transition={{ duration: 1, ease: 'easeOut' }}
           variants={variants}
           animate={show ? 'show' : 'hide'}
           bg="complementary"
           opacity={0}
-          //   mt={200}
-          //   ml={100}
           width={300}
           height={300}
-          //   transition={{ duration: 2 }}
-          //   style={{ background: show ? 'red' : 'blue' }}
         />
       </Box>
       <Box width="50%">
