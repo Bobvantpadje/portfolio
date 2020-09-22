@@ -33,15 +33,18 @@ const GreenBottomBorder = styled(MotionBox)``;
 GreenBottomBorder.defaultProps = {
   bg: 'complementary',
   width: '200vw',
-  height: '154vw',
+  // height: '87%',
+  height: 575,
+  bottom: -490,
+  // bottom: '-130vw',
+
   transform: 'rotate(9.6deg)',
   borderRadius: '60% 40% 40% 60% / 50% 40% 60% 60%',
-  bottom: '-130vw',
   left: '-36vw',
   position: 'absolute',
   variants: {
     open: {
-      y: 0,
+      y: '0%',
       opacity: 1,
       rotate: 6.9,
       transition: {
@@ -50,7 +53,7 @@ GreenBottomBorder.defaultProps = {
       }
     },
     closed: {
-      y: 200,
+      y: '87%',
       opacity: 0,
       rotate: 60,
       transition: {
