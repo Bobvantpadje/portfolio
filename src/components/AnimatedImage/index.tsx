@@ -29,6 +29,10 @@ export const AnimatedImage: FC<IAnimatedImageProps> = ({ variants = defaultVaria
     scrollY.onChange(showItemIfInView(setShow, boxRef));
   }, [scrollY]);
 
+  useEffect(() => {
+    showItemIfInView(setShow, boxRef)(window.scrollY);
+  }, []);
+
   return (
     <MotionBox
       ref={boxRef}
