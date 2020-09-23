@@ -5,6 +5,7 @@ import { useRouter } from 'next/dist/client/router';
 import React, { useEffect, useState } from 'react';
 import { Box } from 'styles/StyledComponents/Box';
 import { OverlayMenu } from './OverlayMenu';
+import { Button } from 'styles/StyledComponents/Input/Button';
 
 interface IHamburgerMenuProps {
   menuItems: HamburgerMenu.MenuItem[];
@@ -26,10 +27,10 @@ export const HamburgerMenu: React.FC<IHamburgerMenuProps> = ({ menuItems }) => {
   //   ReactDOM
   return (
     <Box height="4rem" display="flex" alignItems="center" justifyContent="flex-end" px={[3]}>
-      <Box cursor="pointer" zIndex={2} onClick={() => setShowMenu((showMenu) => !showMenu)}>
+      <Button p={3} variant="invisible" cursor="pointer" zIndex={2} onClick={() => setShowMenu((showMenu) => !showMenu)}>
         {/* <HamburgerIcon /> */}
         <AnimatedBurgerIcon isOpen={showMenu} />
-      </Box>
+      </Button>
       <OverlayMenu show={showMenu} items={menuItems} />
     </Box>
   );

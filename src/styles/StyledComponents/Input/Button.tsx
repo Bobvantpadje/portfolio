@@ -2,8 +2,6 @@ import styled from '@emotion/styled';
 import { background, border, color, flexbox, grid, layout, position, shadow, space, system, typography, variant } from 'styled-system';
 import { IBoxProps } from '../Box';
 
-type VariantProps = { variant?: 'primary' | 'secondary' };
-
 const variants = {
   primary: {
     backgroundSize: '200% 100%',
@@ -20,13 +18,15 @@ const variants = {
       background: 'complementary',
       transform: 'scale(0.9)'
     }
+  },
+  invisible: {
+    border: 'none'
   }
 };
 
-type IStyledButtonProps = IBoxProps & VariantProps;
+type IButtonProps = IBoxProps & { variant?: keyof typeof variants };
 
-//@ts-expect-error
-const StyledButton = styled('button')<IStyledButtonProps>(
+export const Button = styled('button')<IButtonProps>(
   color,
   position,
   space,
@@ -51,18 +51,11 @@ const StyledButton = styled('button')<IStyledButtonProps>(
   })
 );
 
-StyledButton.defaultProps = {
+Button.defaultProps = {
   variant: 'primary',
   borderRadius: '50px',
   py: [3],
-  px: [5]
+  px: [5],
+  type: 'button'
 };
 
-export const Button: React.FC<IStyledButtonProps> = ({ children, ...args }) => {
-  return (
-    // @ts-expect-error
-    <StyledButton type="button" {...args}>
-      {children}
-    </StyledButton>
-  );
-};
