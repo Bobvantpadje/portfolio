@@ -30,7 +30,6 @@ const variants = {
 
 export type IHeaderProps = IBoxProps & CustomProps;
 
-//@ts-expect-error
 export const Header = styled(motion.h1)<IHeaderProps>(
   color,
   position,
