@@ -1,9 +1,8 @@
-// import styled from 'styled-components'
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
 import { background, border, color, flexbox, grid, layout, position, shadow, space, system, typography } from 'styled-system';
+import { Box, IBoxProps } from '../Box';
 
-// @ts-expect-error
 export const MotionBox = styled(motion.div)<IBoxProps>`
   ${color}
   ${position}

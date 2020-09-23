@@ -30,6 +30,7 @@ type customProps = {
   visibility?: string;
   backdropFilter?: string;
   transform?: string;
+  color?: any; // Overwrite color because of React color declaration: https://spectrum.chat/styled-system/general/types-of-property-color-are-incompatible~9227ce42-00f2-473a-8924-f476f0ce6ae1
 };
 
 export type IBoxProps = ColorProps &
@@ -44,7 +45,6 @@ export type IBoxProps = ColorProps &
   PositionProps &
   customProps;
 
-// @ts-expect-error
 export const Box = styled.div<IBoxProps>`
   ${color}
   ${position}

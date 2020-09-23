@@ -1,6 +1,7 @@
-import { useViewportScroll, Variant, Variants } from 'framer-motion';
+import { useViewportScroll, Variant } from 'framer-motion';
 import React, { Dispatch, FC, SetStateAction, useEffect, useRef, useState } from 'react';
 import { MotionBox } from 'styles/StyledComponents/Animated/MotionBox';
+import { IBoxProps } from 'styles/StyledComponents/Box';
 
 interface IAnimatedImageProps {
   variants?: {
@@ -20,7 +21,7 @@ const defaultVariants = {
   }
 };
 
-export const AnimatedImage: FC<IAnimatedImageProps> = ({ variants = defaultVariants }) => {
+export const AnimatedImage: FC<IAnimatedImageProps & IBoxProps> = ({ variants = defaultVariants, ...rest }) => {
   const boxRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useViewportScroll();
   const [show, setShow] = useState(false);
@@ -36,14 +37,17 @@ export const AnimatedImage: FC<IAnimatedImageProps> = ({ variants = defaultVaria
   return (
     <MotionBox
       ref={boxRef}
-      initial={false}
-      transition={{ duration: 1, ease: 'easeOut' }}
-      variants={variants}
       animate={show ? 'show' : 'hide'}
-      bg="complementary"
+      transition={{ duration: 1, ease: 'easeOut' }}
+      initial={false}
+      variants={variants}
       opacity={0}
+      bg="complementary"
       width={300}
       height={300}
+      top={5}
+      position="sticky"
+      {...rest}
     />
   );
 };
