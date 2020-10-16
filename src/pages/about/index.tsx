@@ -1,5 +1,7 @@
 import { AnimatedImage } from 'components/AnimatedImage';
 import { motion, useElementScroll, useSpring, useTransform, useViewportScroll } from 'framer-motion';
+import { useRouter } from 'next/dist/client/router';
+import Link from 'next/link';
 import React, { Dispatch, FC, SetStateAction, useEffect, useRef, useState } from 'react';
 import { MotionBox } from 'styles/StyledComponents/Animated/MotionBox';
 import { Box } from 'styles/StyledComponents/Box';
@@ -12,31 +14,50 @@ const loremText =
 const About: FC = () => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useViewportScroll();
+  const Router = useRouter();
 
   return (
-    <Box ref={ref}>
-      <svg className="progress-icon" viewBox="0 0 60 60" style={{ position: 'fixed', width: 100, height: 100 }}>
-        <motion.path
-          fill="none"
-          strokeWidth="5"
-          stroke="white"
-          strokeDasharray="0 1"
-          d="M 0, 20 a 20, 20 0 1,0 40,0 a 20, 20 0 1,0 -40,0"
-          style={{
-            pathLength: scrollYProgress,
-            rotate: 90,
-            translateX: 5,
-            translateY: 5,
-            scaleX: -1 // Reverse direction of line animation
-          }}
-        />
-      </svg>
-      <Header>About</Header>
-      <AboutItem title="title1" content={loremText} />
-      <AboutItem title="title2" content={loremText} />
-      <AboutItem title="title3" content={loremText} />
-    </Box>
+    // <>
+    <MotionBox
+      // key={Router.route}
+      width="100vw"
+      height="100vh"
+      bg="green"
+      transition={{ duration: 1.5, ease: 'easeOut' }}
+      initial={{ x: '-100vw' }}
+      animate={{ x: '0vw' }}
+      exit={{ x: '-100vw' }}
+      position="absolute"
+      top={0}>
+      <Link href="/">home</Link>
+    </MotionBox>
+    // </>
   );
+
+  // return (
+  //   <Box ref={ref}>
+  //     <svg className="progress-icon" viewBox="0 0 60 60" style={{ position: 'fixed', width: 100, height: 100 }}>
+  //       <motion.path
+  //         fill="none"
+  //         strokeWidth="5"
+  //         stroke="white"
+  //         strokeDasharray="0 1"
+  //         d="M 0, 20 a 20, 20 0 1,0 40,0 a 20, 20 0 1,0 -40,0"
+  //         style={{
+  //           pathLength: scrollYProgress,
+  //           rotate: 90,
+  //           translateX: 5,
+  //           translateY: 5,
+  //           scaleX: -1 // Reverse direction of line animation
+  //         }}
+  //       />
+  //     </svg>
+  //     <Header>About</Header>
+  //     <AboutItem title="title1" content={loremText} />
+  //     <AboutItem title="title2" content={loremText} />
+  //     <AboutItem title="title3" content={loremText} />
+  //   </Box>
+  // );
 };
 
 export default About;
