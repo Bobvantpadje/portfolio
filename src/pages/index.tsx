@@ -35,7 +35,7 @@ const Home: React.FC = () => {
   const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
   const Router = useRouter();
-  const { history, pushHistory } = useHistoryContext();
+  const history = useHistoryContext();
 
   return (
     <GridContainer
@@ -56,12 +56,6 @@ const Home: React.FC = () => {
       <Box bg="blue" gridRow="2" gridColumn="2">
         <Link href="about">about</Link>
         <Link href="skills">skills</Link>
-        <Button
-          onClick={() => {
-            pushHistory('ook fake');
-          }}>
-          add
-        </Button>
         <span>{JSON.stringify(history)}</span>
       </Box>
 

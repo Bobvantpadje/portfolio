@@ -17,7 +17,7 @@ const About: FC = () => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useViewportScroll();
   const Router = useRouter();
-  const { history, pushHistory } = useHistoryContext();
+  const history = useHistoryContext();
 
   return (
     <MotionBox
@@ -32,12 +32,6 @@ const About: FC = () => {
       top={0}>
       welcome to the skills page.
       <Link href="/">home</Link>
-      <Button
-        onClick={() => {
-          pushHistory('fake');
-        }}>
-        add
-      </Button>
       <span>{JSON.stringify(history)}</span>
     </MotionBox>
   );
