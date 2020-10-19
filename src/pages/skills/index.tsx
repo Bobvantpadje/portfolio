@@ -20,14 +20,14 @@ const About: FC = () => {
     <MotionBox
       width="100vw"
       height="100vh"
-      bg="green"
+      bg="red"
       transition={{ duration: 1.5, ease: 'easeOut' }}
-      initial={{ x: '-100vw' }}
-      animate={{ x: '0vw', zIndex: 1 }}
-      exit={{ zIndex: 0 }}
-      // exit={{ x: '-100vw', zIndex: 0 }}
+      initial={{ y: '100vh' }}
+      animate={{ y: '0vw', zIndex: 1 }}
+      exit={{ x: '-100vw', zIndex: 0 }}
       position="fixed"
       top={0}>
+      welcome to the skills page.
       <Link href="/">home</Link>
     </MotionBox>
   );

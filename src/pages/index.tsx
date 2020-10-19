@@ -1,14 +1,28 @@
 import styled from '@emotion/styled';
-import { AnimatedWordList } from 'components/AnimatedWordList';
-import { useTranslation } from 'react-i18next';
-import { AnimatedHeader, LETTER_DELAY_TIME } from 'styles/StyledComponents/Animated/AnimatedHeader';
-import { Box } from 'styles/StyledComponents/Box';
-import { Paragraph } from 'styles/StyledComponents/Text/Paragraph';
-import { motion, AnimatePresence } from 'framer-motion';
-import React, { FC, useState } from 'react';
-import Link from 'next/link';
-import { MotionBox } from 'styles/StyledComponents/Animated/MotionBox';
+import { Link } from 'components/Link';
 import { useRouter } from 'next/dist/client/router';
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { MotionBox } from 'styles/StyledComponents/Animated/MotionBox';
+import { Box } from 'styles/StyledComponents/Box';
+
+const variants = {
+  enter: (direction: string) => ({
+    x: direction !== 'left' ? '-100vw' : '100vw',
+    opacity: 1
+  }),
+  center: (direction: string) => ({
+    x: '0vw',
+    zIndex: 1,
+    opacity: 1
+    // background: direction !== 'left' ? 'red' : 'blue'
+  }),
+  exit: (direction: string) => ({
+    // x: direction !== 'left' ? '-100vw' : '100vw',
+    opacity: 0.3,
+    zIndex: 0
+  })
+};
 
 const Home: React.FC = () => {
   const { t } = useTranslation();
@@ -17,23 +31,23 @@ const Home: React.FC = () => {
 
   return (
     <GridContainer
-      // key={Router.route}
       bg="primary"
       width="100%"
-      initial={{ x: '100vw' }}
-      animate={{ x: '0vw' }}
-      exit={{ x: '100vw' }}
+      custom="left"
+      variants={variants}
+      initial="enter"
+      animate="center"
+      exit="exit"
       transition={{ duration: 1.5, ease: 'easeOut' }}
-      position="absolute"
+      position="fixed"
       top={0}>
-      <Box bg="red" gridColumn="1 / span 3" />
+      {/* <Box bg="red" gridColumn="1 / span 3" />
       <Box bg="yellow" gridRow="2 / span 3" gridColumn="1" />
       <Box bg="yellow" gridRow="2 / span 3" gridColumn="3" />
-      <Box bg="yellow" gridRow="3" gridColumn="1 / span 3" />
+      <Box bg="yellow" gridRow="3" gridColumn="1 / span 3" /> */}
       <Box bg="blue" gridRow="2" gridColumn="2">
         <Link href="about">about</Link>
-        {/* <MyComponent isVisible={visible} />
-        <button onClick={() => setVisible(!visible)}>toggle</button> */}
+        <Link href="skills">skills</Link>
       </Box>
 
       {/* <AnimatedHeader color="text" text={t('home_welcomeMessage')} /> */}
@@ -61,18 +75,3 @@ GridContainer.defaultProps = {
 };
 
 export default Home;
-
-export const MyComponent: FC<{ isVisible: boolean }> = ({ isVisible }) => (
-  <AnimatePresence>
-    {isVisible && (
-      <div>
-        <motion.div
-          style={{ height: 100, width: 100, background: 'purple' }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-        />
-      </div>
-    )}
-  </AnimatePresence>
-);

@@ -17,18 +17,14 @@ const menuItems: HamburgerMenu.MenuItem[] = [
   { url: '/contact', text: 'contact' }
 ];
 
+// const direction = 'left';
 const MyApp = ({ Component, pageProps, router }: AppProps) => {
   // const Router = useRouter();
   return (
     <ThemeProvider theme={{ ...theme, colors }}>
       {/* <HamburgerMenu menuItems={menuItems} /> */}
       <AnimatePresence>
-        <MotionBox
-          key={router.route}
-          transition={{ duration: 1.5, ease: 'easeOut' }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}>
+        <MotionBox key={router.route} overflow="hidden">
           <Component {...pageProps} />
         </MotionBox>
       </AnimatePresence>
