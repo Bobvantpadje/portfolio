@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
-import { AnimatedPageContainer } from 'components/AnimatedPageContainer';
+import { AnimatedPageContainer } from 'components/PageGrid/AnimatedPageContainer';
+import { PageGrid } from 'components/PageGrid';
 import { Link } from 'components/Link';
 import { useHistoryContext } from 'context/historyContext';
 import { useRouter } from 'next/dist/client/router';
@@ -10,48 +11,25 @@ import { Box } from 'styles/StyledComponents/Box';
 import { Button } from 'styles/StyledComponents/Input/Button';
 import routes from 'utils/contants/routes';
 
-const variants = {
-  // enter: (direction: string) => ({
-  //   x: direction !== 'left' ? '-100vw' : '100vw',
-  //   opacity: 1
-  // }),
-  enter: (route: string) => {
-    if (route === '/skills') return { y: '-100vh', opacity: 1 };
-    return { x: '100vw', opacity: 1 };
-  },
-  center: (direction: string) => ({
-    x: '0vw',
-    y: '0vh',
-    zIndex: 1,
-    opacity: 1
-    // background: direction !== 'left' ? 'red' : 'blue'
-  }),
-  exit: (direction: string) => ({
-    // x: direction !== 'left' ? '-100vw' : '100vw',
-    opacity: 0.3,
-    zIndex: 0
-  })
-};
-
 const Home: React.FC = () => {
-  const { t } = useTranslation();
-  const [visible, setVisible] = useState(false);
-  const Router = useRouter();
-  const history = useHistoryContext();
-  const prevRoute = history[history.length - 1];
-
+  // const { t } = useTranslation();
+  // const [visible, setVisible] = useState(false);
+  // const Router = useRouter();
+  // const history = useHistoryContext();
+  // const prevRoute = history[history.length - 1];
   return (
-    // <AnimatedPageContainer bg="red" custom={prevRoute} variants={variants} initial="enter" animate="center" exit="exit">
-    <AnimatedPageContainer bg="red" route={routes.home}>
-      {/* <Box bg="red" gridColumn="1 / span 3" />
-      <Box bg="yellow" gridRow="2 / span 3" gridColumn="1" />
-      <Box bg="yellow" gridRow="2 / span 3" gridColumn="3" />
-      <Box bg="yellow" gridRow="3" gridColumn="1 / span 3" /> */}
-      <Box color="white" gridRow="2" gridColumn="2">
+    <PageGrid.Container bg="red" route={routes.home}>
+      <Box bg="red" gridColumn="1 / span 3" />
+      <PageGrid.Left bg="green"></PageGrid.Left>
+      <PageGrid.Right bg="yellow">
         <Link href="about">about</Link>
+      </PageGrid.Right>
+      <PageGrid.Bottom bg="pink">
         <Link href="skills">skills</Link>
-        <span>{JSON.stringify(history)}</span>
-      </Box>
+      </PageGrid.Bottom>
+      <PageGrid.Center bg="blue" color="white" gridRow="2" gridColumn="2">
+        Home
+      </PageGrid.Center>
 
       {/* <AnimatedHeader color="text" text={t('home_welcomeMessage')} /> */}
       {/* <AnimatedWordList
@@ -66,7 +44,7 @@ const Home: React.FC = () => {
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae accusamus soluta officiis quos sunt veritatis nobis veniam ipsa
         voluptatibus cumque, alias ipsam expedita impedit repellat quas aliquam quasi? Quam, esse.
       </Paragraph> */}
-    </AnimatedPageContainer>
+    </PageGrid.Container>
   );
 };
 

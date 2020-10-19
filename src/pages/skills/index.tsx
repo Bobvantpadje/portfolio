@@ -1,5 +1,5 @@
 import { AnimatedImage } from 'components/AnimatedImage';
-import { AnimatedPageContainer } from 'components/AnimatedPageContainer';
+import { AnimatedPageContainer } from 'components/PageGrid/AnimatedPageContainer';
 import { Link } from 'components/Link';
 import { useHistoryContext } from 'context/historyContext';
 import { useViewportScroll } from 'framer-motion';

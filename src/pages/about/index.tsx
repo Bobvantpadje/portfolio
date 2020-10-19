@@ -1,5 +1,5 @@
 import { AnimatedImage } from 'components/AnimatedImage';
-import { AnimatedPageContainer } from 'components/AnimatedPageContainer';
+import { AnimatedPageContainer } from 'components/PageGrid/AnimatedPageContainer';
 import { Link } from 'components/Link';
 import { useViewportScroll } from 'framer-motion';
 import { useRouter } from 'next/dist/client/router';
@@ -8,6 +8,7 @@ import { MotionBox } from 'styles/StyledComponents/Animated/MotionBox';
 import { Box } from 'styles/StyledComponents/Box';
 import { Header } from 'styles/StyledComponents/Text/Header';
 import { Paragraph } from 'styles/StyledComponents/Text/Paragraph';
+import routes from 'utils/contants/routes';
 
 const loremText =
   'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit repudiandae tenetur atque sint labore cum, illum architecto officiis modi possimus, dolor adipisci laboriosam necessitatibus quas molestiae maxime voluptatibus? Numquam, sint. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores sit recusandae nulla tempora quibusdam distinctio modi minima aliquam sapiente et! Nemo cumque debitis pariatur itaque eius voluptas est deleniti atque. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit repudiandae tenetur atque sint labore cum, illum architecto officiis modi possimus, dolor adipisci laboriosam necessitatibus quas molestiae maxime voluptatibus? Numquam, sint. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores sit recusandae nulla tempora quibusdam distinctio modi minima aliquam sapiente et! Nemo cumque debitis pariatur itaque eius voluptas est deleniti atque.';
@@ -18,8 +19,7 @@ const About: FC = () => {
   const Router = useRouter();
 
   return (
-    // <AnimatedPageContainer bg="green" initial={{ x: '-100vw' }} animate={{ x: '0vw', zIndex: 1 }} exit={{ opacity: 0, zIndex: 0 }}>
-    <AnimatedPageContainer bg="green" route="homeasdfasdfas">
+    <AnimatedPageContainer bg="green" route={routes.about}>
       <Link href="/">home</Link>
     </AnimatedPageContainer>
   );

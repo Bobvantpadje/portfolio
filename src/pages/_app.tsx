@@ -18,9 +18,7 @@ const menuItems: HamburgerMenu.MenuItem[] = [
   { url: '/contact', text: 'contact' }
 ];
 
-// const direction = 'left';
 const MyApp = ({ Component, pageProps, router }: AppProps) => {
-  // const Router = useRouter();
   return (
     <ThemeProvider theme={{ ...theme, colors }}>
       {/* <HamburgerMenu menuItems={menuItems} /> */}
