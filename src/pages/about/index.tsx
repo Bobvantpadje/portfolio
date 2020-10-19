@@ -1,4 +1,5 @@
 import { AnimatedImage } from 'components/AnimatedImage';
+import { AnimatedPageContainer } from 'components/AnimatedPageContainer';
 import { Link } from 'components/Link';
 import { useViewportScroll } from 'framer-motion';
 import { useRouter } from 'next/dist/client/router';
@@ -17,19 +18,10 @@ const About: FC = () => {
   const Router = useRouter();
 
   return (
-    <MotionBox
-      width="100vw"
-      height="100vh"
-      bg="green"
-      transition={{ duration: 1.5, ease: 'easeOut' }}
-      initial={{ x: '-100vw' }}
-      animate={{ x: '0vw', zIndex: 1 }}
-      exit={{ zIndex: 0 }}
-      // exit={{ x: '-100vw', zIndex: 0 }}
-      position="fixed"
-      top={0}>
+    // <AnimatedPageContainer bg="green" initial={{ x: '-100vw' }} animate={{ x: '0vw', zIndex: 1 }} exit={{ opacity: 0, zIndex: 0 }}>
+    <AnimatedPageContainer bg="green" route="homeasdfasdfas">
       <Link href="/">home</Link>
-    </MotionBox>
+    </AnimatedPageContainer>
   );
 
   // return (

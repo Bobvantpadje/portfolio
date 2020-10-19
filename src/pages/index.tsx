@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { AnimatedPageContainer } from 'components/AnimatedPageContainer';
 import { Link } from 'components/Link';
 import { useHistoryContext } from 'context/historyContext';
 import { useRouter } from 'next/dist/client/router';
@@ -7,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 import { MotionBox } from 'styles/StyledComponents/Animated/MotionBox';
 import { Box } from 'styles/StyledComponents/Box';
 import { Button } from 'styles/StyledComponents/Input/Button';
+import routes from 'utils/contants/routes';
 
 const variants = {
   // enter: (direction: string) => ({
@@ -14,8 +16,8 @@ const variants = {
   //   opacity: 1
   // }),
   enter: (route: string) => {
-    if (route === 'skills') return { y: '-100vh', opacity: 1 };
-    return { x: '-100vw', opacity: 1 };
+    if (route === '/skills') return { y: '-100vh', opacity: 1 };
+    return { x: '100vw', opacity: 1 };
   },
   center: (direction: string) => ({
     x: '0vw',
@@ -36,24 +38,16 @@ const Home: React.FC = () => {
   const [visible, setVisible] = useState(false);
   const Router = useRouter();
   const history = useHistoryContext();
+  const prevRoute = history[history.length - 1];
 
   return (
-    <GridContainer
-      bg="primary"
-      width="100%"
-      custom={Router.route}
-      variants={variants}
-      initial="enter"
-      animate="center"
-      exit="exit"
-      transition={{ duration: 1.5, ease: 'easeOut' }}
-      position="fixed"
-      top={0}>
+    // <AnimatedPageContainer bg="red" custom={prevRoute} variants={variants} initial="enter" animate="center" exit="exit">
+    <AnimatedPageContainer bg="red" route={routes.home}>
       {/* <Box bg="red" gridColumn="1 / span 3" />
       <Box bg="yellow" gridRow="2 / span 3" gridColumn="1" />
       <Box bg="yellow" gridRow="2 / span 3" gridColumn="3" />
       <Box bg="yellow" gridRow="3" gridColumn="1 / span 3" /> */}
-      <Box bg="blue" gridRow="2" gridColumn="2">
+      <Box color="white" gridRow="2" gridColumn="2">
         <Link href="about">about</Link>
         <Link href="skills">skills</Link>
         <span>{JSON.stringify(history)}</span>
@@ -72,15 +66,15 @@ const Home: React.FC = () => {
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae accusamus soluta officiis quos sunt veritatis nobis veniam ipsa
         voluptatibus cumque, alias ipsam expedita impedit repellat quas aliquam quasi? Quam, esse.
       </Paragraph> */}
-    </GridContainer>
+    </AnimatedPageContainer>
   );
 };
 
-const GridContainer = styled(MotionBox)``;
-GridContainer.defaultProps = {
-  display: 'grid',
-  gridTemplateColumns: '100px auto 100px',
-  gridTemplateRows: '100px calc(100vh - 200px) 100px'
-};
+// const GridContainer = styled(MotionBox)``;
+// GridContainer.defaultProps = {
+//   display: 'grid',
+//   gridTemplateColumns: '100px auto 100px',
+//   gridTemplateRows: '100px calc(100vh - 200px) 100px'
+// };
 
 export default Home;

@@ -1,4 +1,5 @@
 import { AnimatedImage } from 'components/AnimatedImage';
+import { AnimatedPageContainer } from 'components/AnimatedPageContainer';
 import { Link } from 'components/Link';
 import { useHistoryContext } from 'context/historyContext';
 import { useViewportScroll } from 'framer-motion';
@@ -9,6 +10,7 @@ import { Box } from 'styles/StyledComponents/Box';
 import { Button } from 'styles/StyledComponents/Input/Button';
 import { Header } from 'styles/StyledComponents/Text/Header';
 import { Paragraph } from 'styles/StyledComponents/Text/Paragraph';
+import routes from 'utils/contants/routes';
 
 const loremText =
   'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit repudiandae tenetur atque sint labore cum, illum architecto officiis modi possimus, dolor adipisci laboriosam necessitatibus quas molestiae maxime voluptatibus? Numquam, sint. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores sit recusandae nulla tempora quibusdam distinctio modi minima aliquam sapiente et! Nemo cumque debitis pariatur itaque eius voluptas est deleniti atque. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit repudiandae tenetur atque sint labore cum, illum architecto officiis modi possimus, dolor adipisci laboriosam necessitatibus quas molestiae maxime voluptatibus? Numquam, sint. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores sit recusandae nulla tempora quibusdam distinctio modi minima aliquam sapiente et! Nemo cumque debitis pariatur itaque eius voluptas est deleniti atque.';
@@ -20,20 +22,12 @@ const About: FC = () => {
   const history = useHistoryContext();
 
   return (
-    <MotionBox
-      width="100vw"
-      height="100vh"
-      bg="red"
-      transition={{ duration: 1.5, ease: 'easeOut' }}
-      initial={{ y: '100vh' }}
-      animate={{ y: '0vw', zIndex: 1 }}
-      exit={{ x: '-100vw', zIndex: 0 }}
-      position="fixed"
-      top={0}>
+    // <AnimatedPageContainer bg="blue" initial={{ y: '100vh' }} animate={{ y: '0vw', zIndex: 1 }} exit={{ opacity: 0, zIndex: 0 }}>
+    <AnimatedPageContainer bg="blue" route={routes.skills}>
       welcome to the skills page.
       <Link href="/">home</Link>
       <span>{JSON.stringify(history)}</span>
-    </MotionBox>
+    </AnimatedPageContainer>
   );
 
   // return (
