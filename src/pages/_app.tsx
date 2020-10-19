@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import React from 'react';
 import { MotionBox } from 'styles/StyledComponents/Animated/MotionBox';
 import { useRouter } from 'next/dist/client/router';
-import { HistoryContext } from 'context';
+import { HistoryContextProvider } from 'context/historyContext';
 
 const menuItems: HamburgerMenu.MenuItem[] = [
   { url: '/', text: 'home' },
@@ -24,13 +24,13 @@ const MyApp = ({ Component, pageProps, router }: AppProps) => {
   return (
     <ThemeProvider theme={{ ...theme, colors }}>
       {/* <HamburgerMenu menuItems={menuItems} /> */}
-      <HistoryContext>
+      <HistoryContextProvider>
         <AnimatePresence>
           <MotionBox key={router.route} overflow="hidden">
             <Component {...pageProps} />
           </MotionBox>
         </AnimatePresence>
-      </HistoryContext>
+      </HistoryContextProvider>
     </ThemeProvider>
   );
 };

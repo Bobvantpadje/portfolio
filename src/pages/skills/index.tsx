@@ -1,6 +1,6 @@
 import { AnimatedImage } from 'components/AnimatedImage';
 import { Link } from 'components/Link';
-import { MyContext1 } from 'context';
+import { useHistoryContext } from 'context/historyContext';
 import { useViewportScroll } from 'framer-motion';
 import { useRouter } from 'next/dist/client/router';
 import React, { FC, useContext, useRef } from 'react';
@@ -17,7 +17,7 @@ const About: FC = () => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useViewportScroll();
   const Router = useRouter();
-  const { history, pushHistory } = useContext(MyContext1);
+  const { history, pushHistory } = useHistoryContext();
 
   return (
     <MotionBox

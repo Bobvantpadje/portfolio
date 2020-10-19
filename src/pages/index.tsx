@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { Link } from 'components/Link';
-import { MyContext1 } from 'context';
+import { useHistoryContext } from 'context/historyContext';
 import { useRouter } from 'next/dist/client/router';
 import React, { useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -35,8 +35,7 @@ const Home: React.FC = () => {
   const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
   const Router = useRouter();
-  console.log(Router);
-  const { history, pushHistory } = useContext(MyContext1);
+  const { history, pushHistory } = useHistoryContext();
 
   return (
     <GridContainer
