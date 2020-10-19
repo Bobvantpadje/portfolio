@@ -1,18 +1,25 @@
 import styled from '@emotion/styled';
 import { Link } from 'components/Link';
+import { MyContext1 } from 'context';
 import { useRouter } from 'next/dist/client/router';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { MotionBox } from 'styles/StyledComponents/Animated/MotionBox';
 import { Box } from 'styles/StyledComponents/Box';
+import { Button } from 'styles/StyledComponents/Input/Button';
 
 const variants = {
-  enter: (direction: string) => ({
-    x: direction !== 'left' ? '-100vw' : '100vw',
-    opacity: 1
-  }),
+  // enter: (direction: string) => ({
+  //   x: direction !== 'left' ? '-100vw' : '100vw',
+  //   opacity: 1
+  // }),
+  enter: (route: string) => {
+    if (route === 'skills') return { y: '-100vh', opacity: 1 };
+    return { x: '-100vw', opacity: 1 };
+  },
   center: (direction: string) => ({
     x: '0vw',
+    y: '0vh',
     zIndex: 1,
     opacity: 1
     // background: direction !== 'left' ? 'red' : 'blue'
@@ -28,12 +35,14 @@ const Home: React.FC = () => {
   const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
   const Router = useRouter();
+  console.log(Router);
+  const { history, pushHistory } = useContext(MyContext1);
 
   return (
     <GridContainer
       bg="primary"
       width="100%"
-      custom="left"
+      custom={Router.route}
       variants={variants}
       initial="enter"
       animate="center"
@@ -48,6 +57,13 @@ const Home: React.FC = () => {
       <Box bg="blue" gridRow="2" gridColumn="2">
         <Link href="about">about</Link>
         <Link href="skills">skills</Link>
+        <Button
+          onClick={() => {
+            pushHistory('ook fake');
+          }}>
+          add
+        </Button>
+        <span>{JSON.stringify(history)}</span>
       </Box>
 
       {/* <AnimatedHeader color="text" text={t('home_welcomeMessage')} /> */}

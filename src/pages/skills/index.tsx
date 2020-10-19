@@ -1,10 +1,12 @@
 import { AnimatedImage } from 'components/AnimatedImage';
 import { Link } from 'components/Link';
+import { MyContext1 } from 'context';
 import { useViewportScroll } from 'framer-motion';
 import { useRouter } from 'next/dist/client/router';
-import React, { FC, useRef } from 'react';
+import React, { FC, useContext, useRef } from 'react';
 import { MotionBox } from 'styles/StyledComponents/Animated/MotionBox';
 import { Box } from 'styles/StyledComponents/Box';
+import { Button } from 'styles/StyledComponents/Input/Button';
 import { Header } from 'styles/StyledComponents/Text/Header';
 import { Paragraph } from 'styles/StyledComponents/Text/Paragraph';
 
@@ -15,6 +17,7 @@ const About: FC = () => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useViewportScroll();
   const Router = useRouter();
+  const { history, pushHistory } = useContext(MyContext1);
 
   return (
     <MotionBox
@@ -29,6 +32,13 @@ const About: FC = () => {
       top={0}>
       welcome to the skills page.
       <Link href="/">home</Link>
+      <Button
+        onClick={() => {
+          pushHistory('fake');
+        }}>
+        add
+      </Button>
+      <span>{JSON.stringify(history)}</span>
     </MotionBox>
   );
 

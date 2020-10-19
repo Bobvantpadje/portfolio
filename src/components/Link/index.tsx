@@ -7,7 +7,12 @@ export const Link: FC<Pick<
 >> = ({ children, ...args }) => {
   return (
     <NextLink {...args}>
-      <a>{children}</a>
+      <a
+        onClick={() => {
+          console.log(args.href);
+        }}>
+        {children}
+      </a>
     </NextLink>
   );
 };
