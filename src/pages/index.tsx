@@ -33,54 +33,67 @@ const Home: FC = () => {
 
 export default Home;
 
+const container = {
+  hidden: { opacity: 0, width: '0vw', height: '0vw' },
+  show: {
+    opacity: 1,
+    width: '30vw',
+    height: '30vw',
+    transition: {
+      delayChildren: 1.5,
+      duration: 1,
+      delay: 0.5
+    }
+  }
+};
+
+const itemContainer = {
+  hidden: {
+    opacity: 1
+  },
+  show: {
+    opacity: 1
+    // transition: {
+    //   staggerChildren: 0.5,
+    //   duration: 1
+    //   // delay: 1
+    // }
+  }
+};
+const item = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0 }
+};
+
+const imageVar = {
+  hidden: { opacity: 0, y: 10 },
+  show: { opacity: 1, y: 0 }
+};
+
 const width = ['30vw'];
 const CenterContent: FC = () => {
   return (
     <Box display="flex" justifyContent="center" alignItems="center" height="100%">
-      <MotionBox
-        bg="secondary"
-        // width={width}
-        // height={width}
-        borderRadius="100%"
-        position="relative"
-        initial={{ opacity: 0, width: '0vw', height: '0vw' }}
-        animate={{ opacity: 1, width: '30vw', height: '30vw' }}
-        // transition={{ duration: 1, delay: 2 }}
-        transition={{ duration: 1, delay: 0.5 }}>
-        <Box right={-190} position="absolute" display="flex" flexDirection="column" height="100%" justifyContent="space-around">
-          <MotionBox
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 1.7 }}
-            bg="secondary"
-            width="160px"
-            height="160px"
-            borderRadius="100%"
-          />
-          <MotionBox
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 1.9 }}
-            ml={60}
-            bg="secondary"
-            width="160px"
-            height="160px"
-            borderRadius="100%"
-          />
-          <MotionBox
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 2.1 }}
-            bg="secondary"
-            width="160px"
-            height="160px"
-            borderRadius="100%"
-          />
-        </Box>
+      <MotionBox bg="secondary" borderRadius="100%" position="relative" variants={container} initial="hidden" animate="show">
         <MotionBox
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.5 }}
+          variants={itemContainer}
+          transition={{
+            staggerChildren: 0.5,
+            duration: 1
+          }}
+          right={-190}
+          position="absolute"
+          display="flex"
+          flexDirection="column"
+          height="100%"
+          justifyContent="space-around">
+          <MotionBox variants={item} transition={{ duration: 1 }} bg="secondary" width="160px" height="160px" borderRadius="100%" />
+          <MotionBox variants={item} transition={{ duration: 1 }} ml={60} bg="secondary" width="160px" height="160px" borderRadius="100%" />
+          <MotionBox variants={item} transition={{ duration: 1 }} bg="secondary" width="160px" height="160px" borderRadius="100%" />
+        </MotionBox>
+        <MotionBox
+          variants={imageVar}
+          transition={{ duration: 1 }}
           width="100%"
           height="100%"
           overflow="hidden"
