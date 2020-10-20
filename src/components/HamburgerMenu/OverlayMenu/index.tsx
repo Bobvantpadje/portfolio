@@ -41,8 +41,9 @@ export const OverlayMenu: React.FC<IOverlayMenuProps> = ({ show, items }) => {
   }, []);
 
   if (!body) return null;
+
   return ReactDOM.createPortal(
-    <MenuOverlay variants={sidebar} animate={show ? 'open' : 'closed'}>
+    <MenuOverlay initial="closed" variants={sidebar} animate={show ? 'open' : 'closed'}>
       <MotionBox display="grid" gridGap={5} variants={variants}>
         {items.map((item) => (
           <MenuItem key={item.text} url={item.url}>
