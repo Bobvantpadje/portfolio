@@ -1,6 +1,10 @@
 {
+  "name": "Bob van 't Padje",
   "home_welcomeMessage": "Hi, i'm bob van 't Padje",
   "home_wordListWordOne": "Software developer",
   "home_wordListWordTwo": "Snowboarder",
-  "home_wordListWordThree": "Awesome"
+  "home_wordListWordThree": "Awesome",
+  "portfolio": "Portfolio",
+  "about": "About",
+  "skills": "Skills"
 }

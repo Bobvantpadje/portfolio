@@ -67,5 +67,6 @@ MenuOverlay.defaultProps = {
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
-  overflow: 'hidden'
+  overflow: 'hidden',
+  zIndex: 1
 };

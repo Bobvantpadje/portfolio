@@ -30,7 +30,7 @@ const variants = {
 
 export type IHeaderProps = IBoxProps & CustomProps;
 
-export const Header = styled(motion.h1)<IHeaderProps>(
+export const Header = styled('div')<IHeaderProps>(
   color,
   position,
   space,
@@ -45,7 +45,8 @@ export const Header = styled(motion.h1)<IHeaderProps>(
   variant({ variants }),
   system({
     whiteSpace: true,
-    cursor: true
+    cursor: true,
+    transform: true
   })
 );
 

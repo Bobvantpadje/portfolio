@@ -10,6 +10,7 @@ import React from 'react';
 import { MotionBox } from 'styles/StyledComponents/Animated/MotionBox';
 import { useRouter } from 'next/dist/client/router';
 import { HistoryContextProvider } from 'context/historyContext';
+import { Header } from 'components/Header';
 
 const menuItems: HamburgerMenu.MenuItem[] = [
   { url: '/', text: 'home' },
@@ -22,6 +23,7 @@ const MyApp = ({ Component, pageProps, router }: AppProps) => {
   return (
     <ThemeProvider theme={{ ...theme, colors }}>
       {/* <HamburgerMenu menuItems={menuItems} /> */}
+      <Header />
       <HistoryContextProvider>
         <AnimatePresence>
           <MotionBox key={router.route} overflow="hidden">

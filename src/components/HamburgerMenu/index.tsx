@@ -26,8 +26,8 @@ export const HamburgerMenu: React.FC<IHamburgerMenuProps> = ({ menuItems }) => {
 
   //   ReactDOM
   return (
-    <Box height="4rem" display="flex" alignItems="center" justifyContent="flex-end" px={[3]}>
-      <Button p={3} variant="invisible" cursor="pointer" zIndex={2} onClick={() => setShowMenu((showMenu) => !showMenu)}>
+    <Box display="flex" alignItems="center" justifyContent="flex-end">
+      <Button variant="invisible" cursor="pointer" zIndex={2} onClick={() => setShowMenu((showMenu) => !showMenu)}>
         {/* <HamburgerIcon /> */}
         <AnimatedBurgerIcon isOpen={showMenu} />
       </Button>
