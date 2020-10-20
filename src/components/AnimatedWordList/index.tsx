@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { AnimatedHeader } from "styles/StyledComponents/Animated/AnimatedHeader";
+import { useState, useEffect } from 'react';
+import { AnimatedHeader } from 'styles/StyledComponents/Animated/AnimatedHeader';
 
 interface IAnimatedWordListProps {
   words: string[];
