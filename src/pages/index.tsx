@@ -38,12 +38,7 @@ const container = {
   show: {
     opacity: 1,
     width: '30vw',
-    height: '30vw',
-    transition: {
-      delayChildren: 1.5,
-      duration: 1,
-      delay: 0.5
-    }
+    height: '30vw'
   }
 };
 
@@ -53,11 +48,6 @@ const itemContainer = {
   },
   show: {
     opacity: 1
-    // transition: {
-    //   staggerChildren: 0.5,
-    //   duration: 1
-    //   // delay: 1
-    // }
   }
 };
 const item = {
@@ -66,19 +56,32 @@ const item = {
 };
 
 const imageVar = {
-  hidden: { opacity: 0, y: 10 },
-  show: { opacity: 1, y: 0 }
+  hidden: { opacity: 0 },
+  show: { opacity: 1 }
 };
 
 const width = ['30vw'];
 const CenterContent: FC = () => {
   return (
     <Box display="flex" justifyContent="center" alignItems="center" height="100%">
-      <MotionBox bg="secondary" borderRadius="100%" position="relative" variants={container} initial="hidden" animate="show">
+      <MotionBox
+        bg="secondary"
+        borderRadius="100%"
+        position="relative"
+        variants={container}
+        initial="hidden"
+        animate="show"
+        exit="hidden"
+        transition={{
+          delayChildren: 0.5,
+          duration: 1,
+          delay: 0.5
+        }}>
         <MotionBox
           variants={itemContainer}
           transition={{
             staggerChildren: 0.5,
+            delay: 0.5,
             duration: 1
           }}
           right={-190}
