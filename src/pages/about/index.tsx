@@ -1,6 +1,6 @@
 import { AnimatedImage } from 'components/utils/AnimatedImage';
-import { AnimatedPageContainer } from 'components/PageGrid/AnimatedPageContainer';
-import { Link } from 'components/Link';
+import { AnimatedPageContainer } from 'components/utils/PageGrid/AnimatedPageContainer';
+import { Link } from 'components/utils/Link';
 import { useViewportScroll } from 'framer-motion';
 import { useRouter } from 'next/dist/client/router';
 import React, { FC, useRef } from 'react';
@@ -9,7 +9,7 @@ import { Box } from 'styles/StyledComponents/Box';
 import { Header } from 'styles/StyledComponents/Text/Header';
 import { Paragraph } from 'styles/StyledComponents/Text/Paragraph';
 import routes from 'utils/contants/routes';
-import { PageGrid } from 'components/PageGrid';
+import { PageGrid } from 'components/utils/PageGrid';
 
 const loremText =
   'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit repudiandae tenetur atque sint labore cum, illum architecto officiis modi possimus, dolor adipisci laboriosam necessitatibus quas molestiae maxime voluptatibus? Numquam, sint. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores sit recusandae nulla tempora quibusdam distinctio modi minima aliquam sapiente et! Nemo cumque debitis pariatur itaque eius voluptas est deleniti atque. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit repudiandae tenetur atque sint labore cum, illum architecto officiis modi possimus, dolor adipisci laboriosam necessitatibus quas molestiae maxime voluptatibus? Numquam, sint. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores sit recusandae nulla tempora quibusdam distinctio modi minima aliquam sapiente et! Nemo cumque debitis pariatur itaque eius voluptas est deleniti atque.';
