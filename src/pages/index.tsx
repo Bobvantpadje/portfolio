@@ -4,8 +4,10 @@ import { PageGrid } from 'components/PageGrid';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { opacity } from 'styled-system';
+import { AnimatedHeader, getHeaderAnimationTime } from 'styles/StyledComponents/Animated/AnimatedHeader';
 import { MotionBox } from 'styles/StyledComponents/Animated/MotionBox';
 import { Box } from 'styles/StyledComponents/Box';
+import { Header } from 'styles/StyledComponents/Text/Header';
 import routes from 'utils/contants/routes';
 
 const Home: FC = () => {
@@ -63,11 +65,12 @@ const CenterContent: FC = () => {
           animate="show"
           exit="hidden"
           transition={{
-            delayChildren: 0.5,
+            delayChildren: 1,
             duration: 1,
             delay: 0.5
           }}>
           <SkillIcons />
+          <AboutText />
           <MotionBox
             variants={imageVar}
             transition={{ duration: 1 }}
@@ -105,7 +108,6 @@ const SkillIcons = () => {
       variants={itemContainer}
       transition={{
         staggerChildren: 0.5,
-        delay: 0.5,
         duration: 1
       }}
       right="-25%"
@@ -134,6 +136,36 @@ SkillCircle.defaultProps = {
   borderRadius: '100%'
 };
 
+// const containerVariant = {
+
+// }
+
 const AboutText = () => {
-  return <Box>{/* <Header></Header> */}</Box>;
+  const { t } = useTranslation();
+  const delay = 1.5;
+  return (
+    <Box position="absolute" left="-25%" top="20%" width="60%">
+      <Spacing>
+        <AnimatedHeader variant="h3" text={t('home_welcomeMessage')} initialDelay={1.5} />
+      </Spacing>
+      <Spacing>
+        <AnimatedHeader variant="xl" text={t('name')} initialDelay={delay + getHeaderAnimationTime(t('home_welcomeMessage'))} />
+      </Spacing>
+      <Spacing>
+        <AnimatedHeader
+          variant="h3"
+          text={t('home_jobTitle')}
+          initialDelay={delay + getHeaderAnimationTime(t('home_welcomeMessage')) + getHeaderAnimationTime(t('home_welcomeMessage'))}
+        />
+      </Spacing>
+    </Box>
+  );
+};
+
+const getWordCount = (text: string) => text.split(' ').length;
+// const getFullAnimationTime
+
+const Spacing = styled(Box)``;
+Spacing.defaultProps = {
+  mt: [3]
 };

@@ -3,7 +3,7 @@ import { background, border, color, flexbox, grid, layout, position, shadow, spa
 import { IBoxProps } from '../Box';
 import { motion } from 'framer-motion';
 
-type CustomProps = { variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5'; whiteSpace?: string };
+type CustomProps = { variant?: keyof typeof variants; whiteSpace?: string };
 
 const variants = {
   h1: {
@@ -25,12 +25,16 @@ const variants = {
   h5: {
     fontSize: [3, 3, 3, 4],
     lineHeight: [2, 2, 2, 3]
+  },
+  xl: {
+    fontSize: ['5rem'],
+    lineHeight: ['5rem']
   }
 };
 
 export type IHeaderProps = IBoxProps & CustomProps;
 
-export const Header = styled('div')<IHeaderProps>(
+export const Header = styled(motion.div)<IHeaderProps>(
   color,
   position,
   space,

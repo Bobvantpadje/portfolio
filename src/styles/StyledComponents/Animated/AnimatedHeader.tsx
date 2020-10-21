@@ -20,7 +20,7 @@ export const AnimatedHeader: React.FC<IAnimatedHeaderProps & IHeaderProps> = ({
   return <Box>{text}</Box>;
 };
 
-export const LETTER_DELAY_TIME = 0.2;
+export const LETTER_DELAY_TIME = 0.1;
 const splitArrayPerWord = (text: string) => text.split(' ');
 const createAnimatedWord = (stylingProps: any, initialDelay: number) => (word: string, index: number) => {
   const delay = index * LETTER_DELAY_TIME + initialDelay;
@@ -37,3 +37,6 @@ const createAnimatedWord = (stylingProps: any, initialDelay: number) => (word: s
     </Header>
   );
 };
+
+const getWordCount = (text: string) => text.split(' ').length;
+export const getHeaderAnimationTime = (text: string) => getWordCount(text) * LETTER_DELAY_TIME;
