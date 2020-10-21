@@ -17,12 +17,12 @@ export const HistoryContextProvider: React.FC = ({ children }) => {
   return <HistoryContext.Provider value={history}>{children}</HistoryContext.Provider>;
 };
 
-const useRouteChangeListener = (pushHistory: (route: string) => void) => {
+export const useRouteChangeListener = (fn: (route: string) => void, event = 'routeChangeComplete') => {
   const router = useRouter();
   useEffect(() => {
-    router.events.on('routeChangeComplete', pushHistory);
+    router.events.on(event, fn);
     return () => {
-      router.events.off('routeChangeComplete', pushHistory);
+      router.events.off(event, fn);
     };
   }, []);
 };

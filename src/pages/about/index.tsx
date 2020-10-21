@@ -1,4 +1,4 @@
-import { AnimatedImage } from 'components/AnimatedImage';
+import { AnimatedImage } from 'components/utils/AnimatedImage';
 import { AnimatedPageContainer } from 'components/PageGrid/AnimatedPageContainer';
 import { Link } from 'components/Link';
 import { useViewportScroll } from 'framer-motion';
