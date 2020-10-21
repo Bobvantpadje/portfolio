@@ -9,6 +9,7 @@ import { Box } from 'styles/StyledComponents/Box';
 import { Header } from 'styles/StyledComponents/Text/Header';
 import { Paragraph } from 'styles/StyledComponents/Text/Paragraph';
 import routes from 'utils/contants/routes';
+import { PageGrid } from 'components/PageGrid';
 
 const loremText =
   'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit repudiandae tenetur atque sint labore cum, illum architecto officiis modi possimus, dolor adipisci laboriosam necessitatibus quas molestiae maxime voluptatibus? Numquam, sint. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores sit recusandae nulla tempora quibusdam distinctio modi minima aliquam sapiente et! Nemo cumque debitis pariatur itaque eius voluptas est deleniti atque. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit repudiandae tenetur atque sint labore cum, illum architecto officiis modi possimus, dolor adipisci laboriosam necessitatibus quas molestiae maxime voluptatibus? Numquam, sint. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores sit recusandae nulla tempora quibusdam distinctio modi minima aliquam sapiente et! Nemo cumque debitis pariatur itaque eius voluptas est deleniti atque.';
@@ -19,9 +20,11 @@ const About: FC = () => {
   const Router = useRouter();
 
   return (
-    <AnimatedPageContainer bg="green" route={routes.about}>
-      <Link href="/">home</Link>
-    </AnimatedPageContainer>
+    <PageGrid.Container bg="blue" route={routes.about}>
+      <PageGrid.Center>
+        <Link href="/">home</Link>
+      </PageGrid.Center>
+    </PageGrid.Container>
   );
 
   // return (

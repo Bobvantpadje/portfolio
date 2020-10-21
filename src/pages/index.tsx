@@ -63,7 +63,7 @@ const CenterContent: FC = () => {
           variants={container}
           initial="hidden"
           animate="show"
-          exit="hidden"
+          // exit="hidden"
           transition={{
             delayChildren: 1,
             duration: 1,
