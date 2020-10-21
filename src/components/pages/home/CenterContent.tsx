@@ -1,13 +1,8 @@
-import styled from '@emotion/styled';
 import { ImageCircle } from 'components/utils/ImageCircle';
-import { AboutText } from 'components/utils/ImageCircle/AboutText';
-import { SkillIcons } from 'components/utils/ImageCircle/SkillIcons';
-import { useRouteChangeListener } from 'context/historyContext';
 import React, { FC, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { AnimatedHeader, getHeaderAnimationTime } from 'styles/StyledComponents/Animated/AnimatedHeader';
 import { MotionBox } from 'styles/StyledComponents/Animated/MotionBox';
-import { Box } from 'styles/StyledComponents/Box';
+import { useNextRoute } from 'utils/hooks/useNextRoute';
+import { useRouteChangeListener } from 'utils/hooks/useRouteChangeListener';
 
 const container = {
   hidden: { opacity: 0, width: '0%', height: '0%' },
@@ -29,15 +24,16 @@ const container = {
     }
   }
 };
+
 const exitAnimation = (nextRoute: string) => {
   if (nextRoute === '/skills') return { y: '-20vh' };
   if (nextRoute === '/about') return { x: '-15vw' };
-  return {};
+  return { opacity: 0 };
 };
 
 export const CenterContent: FC = () => {
-  const [nextRoute, setNextRoute] = useState('');
-  useRouteChangeListener(setNextRoute, 'routeChangeStart');
+  const nextRoute = useNextRoute();
+
   return (
     <MotionBox
       display="flex"

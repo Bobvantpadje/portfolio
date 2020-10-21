@@ -1,4 +1,4 @@
-import { HamburgerMenu } from 'components/HamburgerMenu';
+import { HamburgerMenu } from 'components/utils/HamburgerMenu';
 import { ThemeProvider } from 'emotion-theming';
 import type { AppProps /*, AppContext */ } from 'next/app';
 import { useEffect, useState } from 'react';
@@ -10,7 +10,7 @@ import React from 'react';
 import { MotionBox } from 'styles/StyledComponents/Animated/MotionBox';
 import { useRouter } from 'next/dist/client/router';
 import { HistoryContextProvider } from 'context/historyContext';
-import { Header } from 'components/Header';
+import { Header } from 'components/utils/Header';
 
 const menuItems: HamburgerMenu.MenuItem[] = [
   { url: '/', text: 'home' },

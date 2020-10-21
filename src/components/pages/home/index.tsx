@@ -22,7 +22,6 @@ export const Home: FC = () => {
       </PageGrid.Right>
       <PageGrid.Center color="white">
         <CenterContent />
-        {/* <CenterContent /> */}
       </PageGrid.Center>
       <PageGrid.Bottom>
         <HeaderLink href="skills">{t('skills').toUpperCase()}</HeaderLink>

@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Box } from 'styles/StyledComponents/Box';
 import { Header as TextHeader } from 'styles/StyledComponents/Text/Header';
-import { HamburgerMenu } from 'components/HamburgerMenu';
+import { HamburgerMenu } from 'components/utils/HamburgerMenu';
 
 const menuItems: HamburgerMenu.MenuItem[] = [
   { url: '/', text: 'home' },
