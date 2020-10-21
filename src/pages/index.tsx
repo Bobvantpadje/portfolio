@@ -1,3 +1,4 @@
+import styled from '@emotion/styled';
 import { HeaderLink } from 'components/Link/HeaderLink';
 import { PageGrid } from 'components/PageGrid';
 import React, { FC } from 'react';
@@ -34,12 +35,55 @@ const Home: FC = () => {
 export default Home;
 
 const container = {
-  hidden: { opacity: 0, width: '0vw', height: '0vw' },
+  hidden: { opacity: 0, width: '0%', height: '0%' },
   show: {
     opacity: 1,
-    width: '30vw',
-    height: '30vw'
+    width: '100%',
+    height: '100%'
   }
+};
+
+const imageVar = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1 }
+};
+
+const width = ['30vw'];
+const size = ['40vw', '40vw', '40vw', '40vw', '30vw'];
+const CenterContent: FC = () => {
+  return (
+    <Box display="flex" justifyContent="center" alignItems="center" height="100%">
+      <Box width={size} height={size} display="flex" justifyContent="center" alignItems="center">
+        <MotionBox
+          bg="secondary"
+          borderRadius="100%"
+          position="relative"
+          variants={container}
+          initial="hidden"
+          animate="show"
+          exit="hidden"
+          transition={{
+            delayChildren: 0.5,
+            duration: 1,
+            delay: 0.5
+          }}>
+          <SkillIcons />
+          <MotionBox
+            variants={imageVar}
+            transition={{ duration: 1 }}
+            width="100%"
+            height="100%"
+            overflow="hidden"
+            borderRadius="100%"
+            display="flex"
+            justifyContent="center"
+            alignItems="flex-end">
+            <img src="/images/self.png" alt="my image" style={{ height: '90%' }} />
+          </MotionBox>
+        </MotionBox>
+      </Box>
+    </Box>
+  );
 };
 
 const itemContainer = {
@@ -55,58 +99,41 @@ const item = {
   show: { opacity: 1, y: 0 }
 };
 
-const imageVar = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1 }
+const SkillIcons = () => {
+  return (
+    <MotionBox
+      variants={itemContainer}
+      transition={{
+        staggerChildren: 0.5,
+        delay: 0.5,
+        duration: 1
+      }}
+      right="-25%"
+      width="25%"
+      height="100%"
+      position="absolute"
+      display="flex"
+      flexDirection="column"
+      justifyContent="space-around">
+      <SkillCircle />
+      <SkillCircle ml="30%" />
+      <SkillCircle />
+    </MotionBox>
+  );
 };
 
-const width = ['30vw'];
-const CenterContent: FC = () => {
-  return (
-    <Box display="flex" justifyContent="center" alignItems="center" height="100%">
-      <MotionBox
-        bg="secondary"
-        borderRadius="100%"
-        position="relative"
-        variants={container}
-        initial="hidden"
-        animate="show"
-        exit="hidden"
-        transition={{
-          delayChildren: 0.5,
-          duration: 1,
-          delay: 0.5
-        }}>
-        <MotionBox
-          variants={itemContainer}
-          transition={{
-            staggerChildren: 0.5,
-            delay: 0.5,
-            duration: 1
-          }}
-          right={-190}
-          position="absolute"
-          display="flex"
-          flexDirection="column"
-          height="100%"
-          justifyContent="space-around">
-          <MotionBox variants={item} transition={{ duration: 1 }} bg="secondary" width="160px" height="160px" borderRadius="100%" />
-          <MotionBox variants={item} transition={{ duration: 1 }} ml={60} bg="secondary" width="160px" height="160px" borderRadius="100%" />
-          <MotionBox variants={item} transition={{ duration: 1 }} bg="secondary" width="160px" height="160px" borderRadius="100%" />
-        </MotionBox>
-        <MotionBox
-          variants={imageVar}
-          transition={{ duration: 1 }}
-          width="100%"
-          height="100%"
-          overflow="hidden"
-          borderRadius="100%"
-          display="flex"
-          justifyContent="center"
-          alignItems="flex-end">
-          <img src="/images/self.png" alt="my image" style={{ height: '90%' }} />
-        </MotionBox>
-      </MotionBox>
-    </Box>
-  );
+const SkillCircle = styled(MotionBox)``;
+SkillCircle.defaultProps = {
+  variants: item,
+  transition: { duration: 1 },
+  bg: 'secondary',
+  width: '100%',
+  pt: '100%',
+  // width: ['100px', '100px', '100px', '160px'],
+  // height: ['100px', '100px', '100px', '160px'],
+  borderRadius: '100%'
+};
+
+const AboutText = () => {
+  return <Box>{/* <Header></Header> */}</Box>;
 };
