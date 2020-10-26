@@ -11,6 +11,7 @@ import { MotionBox } from 'styles/StyledComponents/Animated/MotionBox';
 import { useRouter } from 'next/dist/client/router';
 import { HistoryContextProvider } from 'context/historyContext';
 import { Header } from 'components/utils/Header';
+import { Box } from 'styles/StyledComponents/Box';
 
 const menuItems: HamburgerMenu.MenuItem[] = [
   { url: '/', text: 'home' },
@@ -20,6 +21,15 @@ const menuItems: HamburgerMenu.MenuItem[] = [
 ];
 
 const MyApp = ({ Component, pageProps, router }: AppProps) => {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    new Image().src = '/images/self.png';
+    setLoaded(true);
+  }, []);
+
+  if (!loaded) return <Box color="white">loading...</Box>;
+
   return (
     <ThemeProvider theme={{ ...theme, colors }}>
       {/* <HamburgerMenu menuItems={menuItems} /> */}

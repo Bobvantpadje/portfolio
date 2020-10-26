@@ -1,7 +1,5 @@
-import styled from '@emotion/styled';
 import { IBoxProps } from '@types';
 import { FC } from 'react';
-import { flex } from 'styled-system';
 import { MotionBox } from 'styles/StyledComponents/Animated/MotionBox';
 import { Box } from 'styles/StyledComponents/Box';
 import { AnimatedPageContainer } from './AnimatedPageContainer';
