@@ -12,6 +12,7 @@ import { useRouter } from 'next/dist/client/router';
 import { HistoryContextProvider } from 'context/historyContext';
 import { Header } from 'components/utils/Header';
 import { Box } from 'styles/StyledComponents/Box';
+import { useImageLoader } from 'utils/hooks/useImageLoader';
 
 const menuItems: HamburgerMenu.MenuItem[] = [
   { url: '/', text: 'home' },
@@ -41,32 +42,3 @@ const MyApp = ({ Component, pageProps, router }: AppProps) => {
 };
 
 export default MyApp;
-
-const useImageLoader = (images: string[]) => {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const promiseImages = () => {
-      const promises = images.map((src) => {
-        return new Promise((resolve, reject) => {
-          const image = new Image();
-          image.src = src;
-          // @ts-expect-error
-          image.onload = resolve();
-          // @ts-expect-error
-          image.onerror = reject();
-        });
-      });
-      return promises;
-    };
-
-    const loadImages = async () => {
-      await Promise.all(promiseImages());
-      setIsLoading(false);
-    };
-
-    loadImages();
-  }, []);
-
-  return { isLoading };
-};

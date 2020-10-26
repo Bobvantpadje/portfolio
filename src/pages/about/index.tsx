@@ -20,7 +20,7 @@ const About: FC = () => {
   const Router = useRouter();
 
   return (
-    <PageGrid.Container bg="secondary" route={routes.about}>
+    <PageGrid.Container bg="primary" route={routes.about}>
       <PageGrid.Center>
         <Link href="/">home</Link>
       </PageGrid.Center>
