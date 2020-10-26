@@ -24,8 +24,23 @@ const MyApp = ({ Component, pageProps, router }: AppProps) => {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    new Image().src = '/images/self.png';
-    setLoaded(true);
+    const promiseImages = async () => {
+      return new Promise((resolve, reject) => {
+        const image = new Image();
+        image.src = '/images/self.png';
+        // @ts-expect-error
+        image.onload = resolve();
+        // @ts-expect-error
+        image.onerror = reject();
+      });
+    };
+
+    const loadImages = async () => {
+      await promiseImages();
+      setLoaded(true);
+    };
+
+    loadImages();
   }, []);
 
   if (!loaded) return <Box color="white">loading...</Box>;
