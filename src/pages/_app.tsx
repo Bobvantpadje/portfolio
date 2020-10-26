@@ -21,29 +21,9 @@ const menuItems: HamburgerMenu.MenuItem[] = [
 ];
 
 const MyApp = ({ Component, pageProps, router }: AppProps) => {
-  const [loaded, setLoaded] = useState(false);
+  const { isLoading } = useImageLoader(['/images/self.png']);
 
-  useEffect(() => {
-    const promiseImages = async () => {
-      return new Promise((resolve, reject) => {
-        const image = new Image();
-        image.src = '/images/self.png';
-        // @ts-expect-error
-        image.onload = resolve();
-        // @ts-expect-error
-        image.onerror = reject();
-      });
-    };
-
-    const loadImages = async () => {
-      await promiseImages();
-      setLoaded(true);
-    };
-
-    loadImages();
-  }, []);
-
-  if (!loaded) return <Box color="white">loading...</Box>;
+  if (isLoading) return <Box color="white">loading...</Box>;
 
   return (
     <ThemeProvider theme={{ ...theme, colors }}>
@@ -61,3 +41,32 @@ const MyApp = ({ Component, pageProps, router }: AppProps) => {
 };
 
 export default MyApp;
+
+const useImageLoader = (images: string[]) => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const promiseImages = () => {
+      const promises = images.map((src) => {
+        return new Promise((resolve, reject) => {
+          const image = new Image();
+          image.src = src;
+          // @ts-expect-error
+          image.onload = resolve();
+          // @ts-expect-error
+          image.onerror = reject();
+        });
+      });
+      return promises;
+    };
+
+    const loadImages = async () => {
+      await Promise.all(promiseImages());
+      setIsLoading(false);
+    };
+
+    loadImages();
+  }, []);
+
+  return { isLoading };
+};
