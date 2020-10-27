@@ -12,6 +12,7 @@ import { Header } from 'styles/StyledComponents/Text/Header';
 import { Paragraph } from 'styles/StyledComponents/Text/Paragraph';
 import routes from 'utils/contants/routes';
 import { PageGrid } from 'components/utils/PageGrid';
+import { CenterContent } from 'components/pages/skills/CenterContent';
 
 const loremText =
   'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit repudiandae tenetur atque sint labore cum, illum architecto officiis modi possimus, dolor adipisci laboriosam necessitatibus quas molestiae maxime voluptatibus? Numquam, sint. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores sit recusandae nulla tempora quibusdam distinctio modi minima aliquam sapiente et! Nemo cumque debitis pariatur itaque eius voluptas est deleniti atque. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit repudiandae tenetur atque sint labore cum, illum architecto officiis modi possimus, dolor adipisci laboriosam necessitatibus quas molestiae maxime voluptatibus? Numquam, sint. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores sit recusandae nulla tempora quibusdam distinctio modi minima aliquam sapiente et! Nemo cumque debitis pariatur itaque eius voluptas est deleniti atque.';
@@ -24,11 +25,9 @@ const About: FC = () => {
 
   return (
     // <AnimatedPageContainer bg="blue" initial={{ y: '100vh' }} animate={{ y: '0vw', zIndex: 1 }} exit={{ opacity: 0, zIndex: 0 }}>
-    <PageGrid.Container bg="pink" route={routes.skills}>
+    <PageGrid.Container bg="primary" route={routes.skills}>
       <PageGrid.Center>
-        welcome to the skills page.
-        <Link href="/">home</Link>
-        <span>{JSON.stringify(history)}</span>
+        <CenterContent />
       </PageGrid.Center>
     </PageGrid.Container>
   );
