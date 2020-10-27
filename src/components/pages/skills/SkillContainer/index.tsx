@@ -8,9 +8,9 @@ type IProps = {
 };
 export const SkillContainer: FC<IProps> = ({ skills = defaultSkills }) => {
   return (
-    <Box>
-      {skills.map((skill) => (
-        <Skill key={skill.name} skill={skill} />
+    <Box display="grid" gridTemplateColumns={['168px 168px 168px 168px']} gridAutoRows={['216PX']} gridGap={[5]} justifyContent="center">
+      {skills.map((skill, i) => (
+        <Skill key={i} skill={skill} />
       ))}
     </Box>
   );

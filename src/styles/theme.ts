@@ -21,7 +21,7 @@ export const theme = {
     Montserrat: `Montserrat`,
     Jura: `jura`
   },
-  radii: [3, 5, 10, 15, 20],
+  radii: [2, 5, 10, 15, 20],
   space: [
     '0rem', // 0
     '0.25rem', // 1
