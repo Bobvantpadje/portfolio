@@ -71,7 +71,9 @@ const ProgressChart: FC<{ percentage: number; color: string; delay?: number }> =
           strokeWidth={(size - circleRadius) * 2}
           fill="none"
           stroke={addOpacity(color, 0.75)}
-          initial={{ pathLength: 0.5, rotate: -90, strokeDashoffset: progressCircle, strokeDasharray: dashPath, scaleX: -1, scaleY: 1 }}
+          initial={{ pathLength: 0.5, rotate: -90, strokeDashoffset: dashPath, strokeDasharray: dashPath, scaleX: -1, scaleY: 1 }}
+          animate={{ strokeDashoffset: progressCircle }}
+          transition={{ duration: 1, delay: delay + 1 }}
         />
         {/* <motion.circle
           cx="60"
@@ -108,7 +110,7 @@ const ProgressChart: FC<{ percentage: number; color: string; delay?: number }> =
           transition={{ duration: 1, delay: delay + 1 }}
         /> */}
       {/* </svg> */}
-      <Box position="absolute" left={0} right={0} ml="auto" mr="auto" top="50%">
+      <Box position="absolute" width="100%" height="100%" top={0} display="flex" justifyContent="center" alignItems="center">
         {percentage}
       </Box>
     </Box>
