@@ -1,5 +1,6 @@
-import { motion, useSpring } from 'framer-motion';
-import React, { FC } from 'react';
+import { motion, useSpring, animate } from 'framer-motion';
+import React, { FC, useEffect, useRef } from 'react';
+// import { animate } from 'framer-motion';
 import { opacity } from 'styled-system';
 import { MotionBox } from 'styles/StyledComponents/Animated/MotionBox';
 import { Box } from 'styles/StyledComponents/Box';
@@ -21,7 +22,7 @@ export const Skill: FC<{ skill: Skill; delay: number }> = ({ skill, delay }) => 
   return (
     <MotionBox variants={variants} transition={{ duration: 1, delay }} bg={addOpacity(skill.color, 0.15)} borderRadius={[3]} p={[3]}>
       <Title skill={skill} />
-      <Box>
+      <Box mt={[3]}>
         <ProgressChart percentage={skill.percentage} color={skill.color} delay={delay} />
       </Box>
     </MotionBox>
@@ -73,63 +74,35 @@ const ProgressChart: FC<{ percentage: number; color: string; delay?: number }> =
           stroke={addOpacity(color, 0.75)}
           initial={{ pathLength: 0.5, rotate: -90, strokeDashoffset: dashPath, strokeDasharray: dashPath, scaleX: -1, scaleY: 1 }}
           animate={{ strokeDashoffset: progressCircle }}
-          transition={{ duration: 1, delay: delay + 1 }}
+          transition={{ duration: 2, delay: delay, ease: 'easeIn' }}
         />
-        {/* <motion.circle
-          cx="60"
-          cy="60"
-          r="54"
-          strokeWidth="12"
-          fill="none"
-          stroke={addOpacity(color, 0.75)}
-          initial="hidden"
-          animate="show"
-          transition={{ duration: 1, delay: delay + 1 }}
-        /> */}
-        {/* <circle cx="60" cy="60" r="54" stroke-width="12" /> */}
       </svg>
-      {/* <svg viewBox="0 0 60 60"> */}
-      {/* <motion.path
-          fill="none"
-          strokeWidth="7"
-          stroke={addOpacity(color, 0.5)}
-          d="M 0, 30 a 30, 30 0 1,0 40,0 a 30, 30 0 1,0 -60,0"
-          strokeDasharray="0 1"
-          // initial={{ pathLength: 1, rotate: 90, translateX: 10, translateY: 15 }}
-          initial={{ pathLength: 1, rotate: 90, translateX: 10 }}
-        /> */}
-      {/* <motion.path
-          fill="none"
-          strokeWidth="7"
-          stroke={addOpacity(color, 0.75)}
-          d="M 0, 20 a 20, 20 0 1,0 40,0 a 20, 20 0 1,0 -40,0"
-          strokeDasharray="0 1"
-          variants={container}
-          initial="hidden"
-          animate="show"
-          transition={{ duration: 1, delay: delay + 1 }}
-        /> */}
-      {/* </svg> */}
       <Box position="absolute" width="100%" height="100%" top={0} display="flex" justifyContent="center" alignItems="center">
-        {percentage}
+        <AnimatedNumberCounter value={percentage * 100} delay={delay} />
       </Box>
     </Box>
   );
 };
 
-const container = {
-  show: {
-    // transition: { delay: 1, duration: 1 },
-    pathLength: 0.9,
-    rotate: 90,
-    translateX: 10
-    // translateY: 15
-  },
-  hidden: {
-    // transition: { delay: 1, duration: 1 },
-    pathLength: 0,
-    rotate: 90,
-    translateX: 10
-    // translateY: 15
-  }
+export const AnimatedNumberCounter: FC<{ value: number; delay: number }> = ({ value, delay = 0 }) => {
+  const nodeRef = useRef(0);
+
+  useEffect(() => {
+    const node = nodeRef.current;
+
+    const controls = animate(0, value, {
+      duration: 2,
+      delay,
+      ease: 'easeIn',
+      onUpdate(value: number) {
+        if (node) {
+          node.textContent = `${value.toFixed(0)}%`;
+        }
+      }
+    });
+
+    return () => controls.stop();
+  }, [value]);
+
+  return <Paragraph fontWeight={[3]} color="white" ref={nodeRef} />;
 };
