@@ -20,9 +20,16 @@ const variants = {
 
 export const Skill: FC<{ skill: Skill; delay: number }> = ({ skill, delay }) => {
   return (
-    <MotionBox variants={variants} transition={{ duration: 1, delay }} bg={addOpacity(skill.color, 0.15)} borderRadius={[3]} p={[3]}>
+    <MotionBox
+      display="flex"
+      flexDirection={['row', 'column']}
+      variants={variants}
+      transition={{ duration: 1, delay }}
+      bg={addOpacity(skill.color, 0.15)}
+      borderRadius={[3]}
+      p={[3]}>
       <Title skill={skill} />
-      <Box mt={[3]}>
+      <Box mt={[0, 3]} ml={['auto', 'none']} position="relative" top={[-14, 0]}>
         <ProgressChart percentage={skill.percentage} color={skill.color} delay={delay} />
       </Box>
     </MotionBox>
@@ -48,10 +55,12 @@ const Title: FC<{ skill: Skill }> = ({ skill }) => {
   );
 };
 
-const circleRadius = 52;
-const size = 60;
-const dashPath = 2 * Math.PI * circleRadius;
-const ProgressChart: FC<{ percentage: number; color: string; delay?: number }> = ({ percentage, color, delay = 0 }) => {
+// const circleRadius = 22;
+// const size = 30;
+type Props = { percentage: number; color: string; delay?: number; size?: number };
+const ProgressChart: FC<Props> = ({ percentage, color, delay = 0, size = 30 }) => {
+  const circleRadius = size - 8;
+  const dashPath = 2 * Math.PI * circleRadius;
   const progressCircle = dashPath * (1 - percentage);
   return (
     <Box position="relative">
@@ -60,7 +69,8 @@ const ProgressChart: FC<{ percentage: number; color: string; delay?: number }> =
           cx={size}
           cy={size}
           r={circleRadius}
-          strokeWidth={(size - circleRadius) * 2}
+          // strokeWidth={(size - circleRadius) * 2}
+          strokeWidth="12"
           fill="none"
           stroke={addOpacity(color, 0.5)}
           initial={{ pathLength: 0.5, rotate: -90, strokeDashoffset: 0, strokeDasharray: dashPath, scaleX: -1, scaleY: 1 }}
@@ -69,9 +79,11 @@ const ProgressChart: FC<{ percentage: number; color: string; delay?: number }> =
           cx={size}
           cy={size}
           r={circleRadius}
-          strokeWidth={(size - circleRadius) * 2}
+          // strokeWidth={(size - circleRadius) * 2}
+          strokeWidth="12"
           fill="none"
           stroke={addOpacity(color, 0.75)}
+          // stroke={'red'}
           initial={{ pathLength: 0.5, rotate: -90, strokeDashoffset: dashPath, strokeDasharray: dashPath, scaleX: -1, scaleY: 1 }}
           animate={{ strokeDashoffset: progressCircle }}
           transition={{ duration: 2, delay: delay, ease: 'easeIn' }}

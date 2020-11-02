@@ -27,8 +27,8 @@ export const SkillContainer: FC<IProps> = ({ skills = defaultSkills }) => {
       initial="hidden"
       animate="show"
       display="grid"
-      gridTemplateColumns={['168px 168px 168px 168px']}
-      gridAutoRows={['216PX']}
+      gridTemplateColumns={['100%', '168px 168px 168px', '168px 168px 168px', '168px 168px 168px 168px']}
+      gridAutoRows={['64px', '216px']}
       gridGap={[5]}
       justifyContent="center">
       {skills.map((skill, i) => (
