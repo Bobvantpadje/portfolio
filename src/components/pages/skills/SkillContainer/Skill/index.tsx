@@ -55,13 +55,12 @@ const Title: FC<{ skill: Skill }> = ({ skill }) => {
   );
 };
 
-// const circleRadius = 22;
-// const size = 30;
 type Props = { percentage: number; color: string; delay?: number; size?: number };
 const ProgressChart: FC<Props> = ({ percentage, color, delay = 0, size = 30 }) => {
   const circleRadius = size - 8;
   const dashPath = 2 * Math.PI * circleRadius;
   const progressCircle = dashPath * (1 - percentage);
+  const strokeWidth = size / 4;
   return (
     <Box position="relative">
       <svg width={size * 2} height={size * 2} viewBox={`0 0 ${size * 2} ${size * 2}`}>
@@ -69,8 +68,7 @@ const ProgressChart: FC<Props> = ({ percentage, color, delay = 0, size = 30 }) =
           cx={size}
           cy={size}
           r={circleRadius}
-          // strokeWidth={(size - circleRadius) * 2}
-          strokeWidth="12"
+          strokeWidth={strokeWidth}
           fill="none"
           stroke={addOpacity(color, 0.5)}
           initial={{ pathLength: 0.5, rotate: -90, strokeDashoffset: 0, strokeDasharray: dashPath, scaleX: -1, scaleY: 1 }}
@@ -79,11 +77,9 @@ const ProgressChart: FC<Props> = ({ percentage, color, delay = 0, size = 30 }) =
           cx={size}
           cy={size}
           r={circleRadius}
-          // strokeWidth={(size - circleRadius) * 2}
-          strokeWidth="12"
+          strokeWidth={strokeWidth}
           fill="none"
           stroke={addOpacity(color, 0.75)}
-          // stroke={'red'}
           initial={{ pathLength: 0.5, rotate: -90, strokeDashoffset: dashPath, strokeDasharray: dashPath, scaleX: -1, scaleY: 1 }}
           animate={{ strokeDashoffset: progressCircle }}
           transition={{ duration: 2, delay: delay, ease: 'easeIn' }}
