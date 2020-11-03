@@ -33,6 +33,7 @@ export const Skill: FC<{ skill: Skill; delay: number }> = ({ skill, delay }) => 
       <SkillTitle skill={skill} />
       <Box mt={[0, 3]} ml={['auto', 0]} position="relative" top={[-14, 0]}>
         <ProgressChart percentage={skill.percentage} color={skill.color} delay={delay} size={chartSize} />
+        {/* <ProgressChart percentage={skill.percentage} color={skill.color} delay={delay} /> */}
       </Box>
     </MotionBox>
   );

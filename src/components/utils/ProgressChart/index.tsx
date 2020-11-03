@@ -6,27 +6,37 @@ import { addOpacity } from 'utils/helpers/addOpacity';
 
 type Props = { percentage: number; color: string; delay?: number; size?: number };
 export const ProgressChart: FC<Props> = ({ percentage, color, delay = 0, size = 60 }) => {
-  const defaultCircleProps = useMemo(() => {
-    const circleRadius = size - 8;
-    const strokeWidth = size / 4;
-    return { cx: size, cy: size, r: circleRadius, strokeWidth: strokeWidth, fill: 'none' };
-  }, [size]);
-
+  // const defaultCircleProps = useMemo(() => {
+  //   const circleRadius = size - 8;
+  //   const strokeWidth = size / 4;
+  //   return { cx: size, cy: size, r: circleRadius, strokeWidth: strokeWidth, fill: 'none' };
+  // }, [size]);
+  const circleRadius = size - 8;
+  const strokeWidth = size / 4;
+  const defaultCircleProps = { cx: size, cy: size, r: circleRadius, strokeWidth: strokeWidth, fill: 'none' };
   const dashPath = 2 * Math.PI * defaultCircleProps.r;
   const progressCircle = dashPath * (1 - percentage);
   return (
     <Box position="relative">
-      <svg width={size * 2} height={size * 2} viewBox={`0 0 ${size * 2} ${size * 2}`}>
+      <svg
+        width={size * 2}
+        height={size * 2}
+        viewBox={`0 0 ${size * 2} ${size * 2}`}
+        style={{ transform: 'rotate(-90deg) scaleX(1) scaleY(-1)' }}>
         <motion.circle
           {...defaultCircleProps}
           stroke={addOpacity(color, 0.5)}
-          initial={{ pathLength: 0.5, rotate: -90, strokeDashoffset: 0, strokeDasharray: dashPath, scaleX: -1, scaleY: 1 }}
+          pathLength={0.5}
+          rotate={-90}
+          strokeDashoffset={0}
+          strokeDasharray={dashPath}
         />
         <motion.circle
           {...defaultCircleProps}
           stroke={addOpacity(color, 0.75)}
-          initial={{ pathLength: 0.5, rotate: -90, strokeDashoffset: dashPath, strokeDasharray: dashPath, scaleX: -1, scaleY: 1 }}
-          animate={{ strokeDashoffset: progressCircle }}
+          initial={{ pathLength: 0.5, strokeDashoffset: dashPath, strokeDasharray: dashPath }}
+          // animate={{ strokeDashoffset: progressCircle }}
+          animate={{ pathLength: 0.5, strokeDashoffset: progressCircle, strokeDasharray: dashPath }}
           transition={{ duration: 2, delay: delay, ease: 'easeIn' }}
         />
       </svg>
