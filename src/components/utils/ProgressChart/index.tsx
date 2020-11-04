@@ -6,11 +6,6 @@ import { addOpacity } from 'utils/helpers/addOpacity';
 
 type Props = { percentage: number; color: string; delay?: number; size?: number };
 export const ProgressChart: FC<Props> = ({ percentage, color, delay = 0, size = 60 }) => {
-  // const defaultCircleProps = useMemo(() => {
-  //   const circleRadius = size - 8;
-  //   const strokeWidth = size / 4;
-  //   return { cx: size, cy: size, r: circleRadius, strokeWidth: strokeWidth, fill: 'none' };
-  // }, [size]);
   const circleRadius = size - 8;
   const strokeWidth = size / 4;
   const defaultCircleProps = { cx: size, cy: size, r: circleRadius, strokeWidth: strokeWidth, fill: 'none' };

@@ -9,7 +9,7 @@ export const CenterContent: FC = () => {
   return (
     <Box textAlign="center">
       <Header>{t('skills')}</Header>
-      <Paragraph>
+      <Paragraph mt={[3, 5]} mb={[3, 6]}>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, ea dignissimos voluptatum velit quam asperiores distinctio quae
         porro neque, tempora qui laudantium ad, dolorem maxime recusandae harum excepturi voluptates odio!
       </Paragraph>

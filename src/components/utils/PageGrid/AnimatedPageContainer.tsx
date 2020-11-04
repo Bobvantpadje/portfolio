@@ -59,6 +59,6 @@ const variants = {
 const GridContainer = styled(MotionBox)``;
 GridContainer.defaultProps = {
   display: 'grid',
-  gridTemplateColumns: '6rem auto 6rem',
+  gridTemplateColumns: ['1rem auto 1rem', '6rem auto 6rem'],
   gridTemplateRows: '6rem calc(100vh - 12rem) 6rem'
 };

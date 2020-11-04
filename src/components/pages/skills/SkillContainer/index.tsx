@@ -29,7 +29,7 @@ export const SkillContainer: FC<IProps> = ({ skills = defaultSkills }) => {
       display="grid"
       gridTemplateColumns={['100%', '168px 168px 168px', '168px 168px 168px', '168px 168px 168px 168px']}
       gridAutoRows={['64px', '216px']}
-      gridGap={[5]}
+      gridGap={[3, 5]}
       justifyContent="center">
       {skills.map((skill, i) => (
         <Skill key={i} skill={skill} delay={i * 0.3} />
