@@ -26,7 +26,7 @@ const About: FC = () => {
   return (
     // <AnimatedPageContainer bg="blue" initial={{ y: '100vh' }} animate={{ y: '0vw', zIndex: 1 }} exit={{ opacity: 0, zIndex: 0 }}>
     <PageGrid.Container bg="primary" route={routes.skills}>
-      <PageGrid.Center>
+      <PageGrid.Center gridRow="2 / span 3">
         <CenterContent />
       </PageGrid.Center>
     </PageGrid.Container>

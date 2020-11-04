@@ -1,3 +1,4 @@
+import styled from '@emotion/styled';
 import { IBoxProps } from '@types';
 import { FC } from 'react';
 import { MotionBox } from 'styles/StyledComponents/Animated/MotionBox';
@@ -26,9 +27,9 @@ const Bottom: FC<IBoxProps> = ({ children, ...args }) => (
 
 const Center: FC<IBoxProps> = ({ children, ...args }) => {
   return (
-    <MotionBox gridRow={2} gridColumn={2} {...args}>
+    <HideScrollbar gridRow={2} gridColumn={2} {...args} overflow="auto">
       {children}
-    </MotionBox>
+    </HideScrollbar>
   );
 };
 
@@ -39,3 +40,11 @@ export const PageGrid = {
   Center,
   Container: AnimatedPageContainer
 };
+
+const HideScrollbar = styled(MotionBox)`
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
