@@ -43,7 +43,7 @@ export const ProgressChart: FC<Props> = ({ percentage, color, delay = 0, size = 
 };
 
 const AnimatedNumberCounter: FC<{ value: number; delay: number }> = ({ value, delay = 0 }) => {
-  const nodeRef = useRef(0);
+  const nodeRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     const node = nodeRef.current;
