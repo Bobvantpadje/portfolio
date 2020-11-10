@@ -57,15 +57,7 @@ const variants = {
 };
 
 export const ROW_HEIGHT = '6rem';
-const GridContainer = styled(MotionBox)`
-  /* overflow: auto; */
-  -webkit-overflow-scroll: auto;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-`;
+const GridContainer = styled(MotionBox)``;
 GridContainer.defaultProps = {
   display: 'grid',
   gridTemplateColumns: ['1rem auto 1rem', `${ROW_HEIGHT} auto ${ROW_HEIGHT}`],

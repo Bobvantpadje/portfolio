@@ -27,9 +27,9 @@ const Bottom: FC<IBoxProps> = ({ children, ...args }) => (
 
 const Center: FC<IBoxProps> = ({ children, ...args }) => {
   return (
-    <HideScrollbar gridRow={2} gridColumn={2} {...args} overflow="auto">
+    <MotionBox gridRow={2} gridColumn={2} {...args} overflow="auto">
       {children}
-    </HideScrollbar>
+    </MotionBox>
   );
 };
 
@@ -40,12 +40,3 @@ export const PageGrid = {
   Center,
   Container: AnimatedPageContainer
 };
-
-export const HideScrollbar = styled(MotionBox)`
-  -webkit-overflow-scroll: auto;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-`;

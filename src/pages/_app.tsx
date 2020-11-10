@@ -32,7 +32,7 @@ const MyApp = ({ Component, pageProps, router }: AppProps) => {
       <Header />
       <HistoryContextProvider>
         <AnimatePresence>
-          <MotionBox key={router.route} overflow="hidden">
+          <MotionBox key={router.route}>
             <Component {...pageProps} />
           </MotionBox>
         </AnimatePresence>
