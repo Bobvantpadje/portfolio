@@ -1,5 +1,5 @@
 import { AnimatedImage } from 'components/utils/AnimatedImage';
-import { AnimatedPageContainer } from 'components/utils/PageGrid/AnimatedPageContainer';
+import { AnimatedPageContainer, ROW_HEIGHT } from 'components/utils/PageGrid/AnimatedPageContainer';
 import { Link } from 'components/utils/Link';
 import { useHistoryContext } from 'context/historyContext';
 import { useViewportScroll } from 'framer-motion';
@@ -26,7 +26,7 @@ const About: FC = () => {
   return (
     // <AnimatedPageContainer bg="blue" initial={{ y: '100vh' }} animate={{ y: '0vw', zIndex: 1 }} exit={{ opacity: 0, zIndex: 0 }}>
     <PageGrid.Container bg="primary" route={routes.skills}>
-      <PageGrid.Center gridRow="2 / span 3">
+      <PageGrid.Center gridRow="1 / span 3" gridColumn="1 / span 3" p={ROW_HEIGHT}>
         <CenterContent />
       </PageGrid.Center>
     </PageGrid.Container>

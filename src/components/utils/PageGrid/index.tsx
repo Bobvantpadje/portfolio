@@ -42,9 +42,10 @@ export const PageGrid = {
 };
 
 const HideScrollbar = styled(MotionBox)`
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -webkit-overflow-scroll: auto;
+  /* -ms-overflow-style: none;
+  scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;
-  }
+  } */
 `;
