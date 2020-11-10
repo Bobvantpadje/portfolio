@@ -14,7 +14,7 @@ export const Link: FC<Pick<
 >> = ({ children, ...args }) => {
   return (
     <NextLink {...args}>
-      <a>{children}</a>
+      <a style={{ width: '100%', textAlign: 'center' }}>{children}</a>
     </NextLink>
   );
 };

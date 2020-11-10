@@ -41,11 +41,11 @@ export const PageGrid = {
   Container: AnimatedPageContainer
 };
 
-const HideScrollbar = styled(MotionBox)`
+export const HideScrollbar = styled(MotionBox)`
   -webkit-overflow-scroll: auto;
-  /* -ms-overflow-style: none;
+  -ms-overflow-style: none;
   scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;
-  } */
+  }
 `;

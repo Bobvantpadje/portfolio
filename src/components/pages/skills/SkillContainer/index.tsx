@@ -36,4 +36,23 @@ export const SkillContainer: FC<IProps> = ({ skills = defaultSkills }) => {
       ))}
     </MotionBox>
   );
+  // return (
+  //   <MotionBox
+  //     variants={container}
+  //     transition={{
+  //       // staggerChildren: 0.5,
+  //       duration: 1
+  //     }}
+  //     initial="hidden"
+  //     animate="show"
+  //     display="grid"
+  //     gridTemplateColumns={['100%', '168px 168px 168px', '168px 168px 168px', '168px 168px 168px 168px']}
+  //     gridAutoRows={['64px', '216px']}
+  //     gridGap={[3, 5]}
+  //     justifyContent="center">
+  //     {skills.map((skill, i) => (
+  //       <Skill key={i} skill={skill} delay={i * 0.3} />
+  //     ))}
+  //   </MotionBox>
+  // );
 };
