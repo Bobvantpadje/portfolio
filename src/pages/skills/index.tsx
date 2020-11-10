@@ -1,18 +1,14 @@
+import { CenterContent } from 'components/pages/skills/CenterContent';
 import { AnimatedImage } from 'components/utils/AnimatedImage';
-import { AnimatedPageContainer, ROW_HEIGHT } from 'components/utils/PageGrid/AnimatedPageContainer';
-import { Link } from 'components/utils/Link';
+import { PageGrid } from 'components/utils/PageGrid';
 import { useHistoryContext } from 'context/historyContext';
 import { useViewportScroll } from 'framer-motion';
 import { useRouter } from 'next/dist/client/router';
-import React, { FC, useContext, useRef } from 'react';
-import { MotionBox } from 'styles/StyledComponents/Animated/MotionBox';
+import React, { FC, useRef } from 'react';
 import { Box } from 'styles/StyledComponents/Box';
-import { Button } from 'styles/StyledComponents/Input/Button';
 import { Header } from 'styles/StyledComponents/Text/Header';
 import { Paragraph } from 'styles/StyledComponents/Text/Paragraph';
 import routes from 'utils/contants/routes';
-import { PageGrid } from 'components/utils/PageGrid';
-import { CenterContent } from 'components/pages/skills/CenterContent';
 
 const loremText =
   'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit repudiandae tenetur atque sint labore cum, illum architecto officiis modi possimus, dolor adipisci laboriosam necessitatibus quas molestiae maxime voluptatibus? Numquam, sint. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores sit recusandae nulla tempora quibusdam distinctio modi minima aliquam sapiente et! Nemo cumque debitis pariatur itaque eius voluptas est deleniti atque. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit repudiandae tenetur atque sint labore cum, illum architecto officiis modi possimus, dolor adipisci laboriosam necessitatibus quas molestiae maxime voluptatibus? Numquam, sint. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores sit recusandae nulla tempora quibusdam distinctio modi minima aliquam sapiente et! Nemo cumque debitis pariatur itaque eius voluptas est deleniti atque.';
