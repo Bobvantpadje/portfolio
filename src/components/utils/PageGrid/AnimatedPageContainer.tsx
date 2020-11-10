@@ -56,9 +56,10 @@ const variants = {
   }
 };
 
+export const ROW_HEIGHT = '6rem';
 const GridContainer = styled(MotionBox)``;
 GridContainer.defaultProps = {
   display: 'grid',
-  gridTemplateColumns: ['1rem auto 1rem', '6rem auto 6rem'],
-  gridTemplateRows: '6rem calc(100vh - 12rem) 6rem'
+  gridTemplateColumns: ['1rem auto 1rem', `${ROW_HEIGHT} auto ${ROW_HEIGHT}`],
+  gridTemplateRows: `${ROW_HEIGHT} calc(100vh - 12rem) ${ROW_HEIGHT}`
 };
