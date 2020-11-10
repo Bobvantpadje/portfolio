@@ -23,12 +23,18 @@ const About: FC = () => {
   const Router = useRouter();
   const history = useHistoryContext();
 
+  // return (
+  //   // <AnimatedPageContainer bg="blue" initial={{ y: '100vh' }} animate={{ y: '0vw', zIndex: 1 }} exit={{ opacity: 0, zIndex: 0 }}>
+  //   <PageGrid.Container bg="primary" route={routes.skills}>
+  //     <PageGrid.Center gridRow="1 / span 3" gridColumn="1 / span 3" p={ROW_HEIGHT}>
+  //       <CenterContent />
+  //     </PageGrid.Center>
+  //   </PageGrid.Container>
+  // );
+
   return (
-    // <AnimatedPageContainer bg="blue" initial={{ y: '100vh' }} animate={{ y: '0vw', zIndex: 1 }} exit={{ opacity: 0, zIndex: 0 }}>
-    <PageGrid.Container bg="primary" route={routes.skills}>
-      <PageGrid.Center gridRow="1 / span 3" gridColumn="1 / span 3" p={ROW_HEIGHT}>
-        <CenterContent />
-      </PageGrid.Center>
+    <PageGrid.Container bg="primary" route={routes.skills} display="block">
+      <CenterContent />
     </PageGrid.Container>
   );
 

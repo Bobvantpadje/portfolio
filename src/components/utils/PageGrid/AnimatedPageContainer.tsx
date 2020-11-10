@@ -15,7 +15,7 @@ export const AnimatedPageContainer: FC<IBoxProps & { route: keyof typeof routes 
       variants={variants[route]}
       width="100vw"
       height="100vh"
-      position="fixed"
+      position="absolute"
       top={0}
       transition={{ duration: 1 }}
       initial="initial"
