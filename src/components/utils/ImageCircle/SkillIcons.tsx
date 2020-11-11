@@ -18,15 +18,16 @@ export const SkillIcons = () => {
         staggerChildren: 0.5,
         duration: 1
       }}
-      right="-25%"
-      width="25%"
-      height="100%"
+      right={['0', '-25%']}
+      width={['100%', '25%']}
+      height={['25%', '100%']}
       position="absolute"
+      bottom={['100%', 'auto']}
       display="flex"
-      flexDirection="column"
-      justifyContent="space-around">
+      flexDirection={['row', 'column']}
+      justifyContent={['space-between', 'space-around']}>
       <SkillCircle />
-      <SkillCircle ml="30%" />
+      <SkillCircle ml="30%" display={['none', 'block']} />
       <SkillCircle />
     </MotionBox>
   );
@@ -37,7 +38,7 @@ SkillCircle.defaultProps = {
   variants: { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0 } },
   transition: { duration: 1 },
   bg: 'secondary',
-  width: '100%',
-  pt: '100%',
+  width: ['30%', '100%'],
+  pt: ['30%', '100%'],
   borderRadius: '100%'
 };
