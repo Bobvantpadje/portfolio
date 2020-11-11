@@ -8,16 +8,17 @@ export const AboutText = () => {
   const { t } = useTranslation();
   const delay = 1.5;
   return (
-    <Box position="absolute" left="-25%" top="20%" width="60%">
+    <Box position="absolute" left={['auto', '-25%']} top={['95%', '20%']} width={['100%', '60%']} textAlign={['center', 'left']}>
       <Spacing>
-        <AnimatedHeader variant="h3" text={t('home_welcomeMessage')} initialDelay={1.5} />
+        <AnimatedHeader fontWeight="600" variant={['h5', 'h3']} text={t('home_welcomeMessage')} initialDelay={1.5} />
       </Spacing>
       <Spacing>
-        <AnimatedHeader variant="xl" text={t('name')} initialDelay={delay + getHeaderAnimationTime(t('home_welcomeMessage'))} />
+        <AnimatedHeader variant={['h2', 'xl']} text={t('name')} initialDelay={delay + getHeaderAnimationTime(t('home_welcomeMessage'))} />
       </Spacing>
       <Spacing>
         <AnimatedHeader
-          variant="h3"
+          fontWeight="600"
+          variant={['h5', 'h3']}
           text={t('home_jobTitle')}
           initialDelay={delay + getHeaderAnimationTime(t('home_welcomeMessage')) + getHeaderAnimationTime(t('home_welcomeMessage'))}
         />
@@ -28,5 +29,5 @@ export const AboutText = () => {
 
 const Spacing = styled(Box)``;
 Spacing.defaultProps = {
-  mt: [3]
+  mt: [2, 3]
 };

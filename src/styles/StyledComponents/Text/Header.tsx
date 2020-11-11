@@ -3,7 +3,7 @@ import { background, border, color, flexbox, grid, layout, position, shadow, spa
 import { IBoxProps } from '../Box';
 import { motion } from 'framer-motion';
 
-type CustomProps = { variant?: keyof typeof variants; whiteSpace?: string };
+type CustomProps = { variant?: keyof typeof variants | Array<keyof typeof variants>; whiteSpace?: string };
 
 const variants = {
   h1: {
