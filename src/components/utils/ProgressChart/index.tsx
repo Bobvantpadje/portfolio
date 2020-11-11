@@ -1,3 +1,4 @@
+import { IBoxProps } from '@types';
 import { animate, motion } from 'framer-motion';
 import React, { FC, useEffect, useMemo, useRef } from 'react';
 import { Box } from 'styles/StyledComponents/Box';
@@ -36,13 +37,13 @@ export const ProgressChart: FC<Props> = ({ percentage, color, delay = 0, size = 
         />
       </svg>
       <Box position="absolute" width="100%" height="100%" top={0} display="flex" justifyContent="center" alignItems="center">
-        <AnimatedNumberCounter value={percentage * 100} delay={delay} />
+        <AnimatedNumberCounter value={percentage * 100} delay={delay} fontSize={[1, 3]} />
       </Box>
     </Box>
   );
 };
 
-const AnimatedNumberCounter: FC<{ value: number; delay: number }> = ({ value, delay = 0 }) => {
+const AnimatedNumberCounter: FC<{ value: number; delay: number } & IBoxProps> = ({ value, delay = 0, ...args }) => {
   const nodeRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
@@ -62,5 +63,5 @@ const AnimatedNumberCounter: FC<{ value: number; delay: number }> = ({ value, de
     return () => controls.stop();
   }, [value]);
 
-  return <Paragraph fontWeight={[3]} color="white" ref={nodeRef} />;
+  return <Paragraph fontWeight={[3]} color="white" ref={nodeRef} {...args} />;
 };
