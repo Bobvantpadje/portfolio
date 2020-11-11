@@ -18,7 +18,6 @@ const container = {
   },
   exit: {
     opacity: 0,
-    y: -500,
     transition: {
       duration: 1
     }
