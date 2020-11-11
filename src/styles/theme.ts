@@ -10,7 +10,7 @@ export const colors = {
 
 export const breakPoints = {
   mobile: '48rem', // 768px
-  ipadPortrait: '48rem', // 1024px
+  ipadPortrait: '64rem', // 1024px
   ipadLandscape: '90rem', // 1440px
   hd: '120rem' // 1920px
 };

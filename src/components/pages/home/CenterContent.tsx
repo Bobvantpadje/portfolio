@@ -22,7 +22,7 @@ export const CenterContent: FC = () => {
       exit={exitAnimation}
       custom={nextRoute}>
       <ImageCircle>
-        <ImageCircle.SkillIcons />
+        {/* <ImageCircle.SkillIcons /> */}
         <ImageCircle.Text />
       </ImageCircle>
     </MotionBox>

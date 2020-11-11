@@ -29,7 +29,7 @@ const imageVar = {
   show: { opacity: 1 }
 };
 
-const size = ['40vw', '40vw', '40vw', '40vw', '30vw'];
+const size = [300, 400, 500, 600, 700];
 
 export const ImageCircle: FC & { Text: FC; SkillIcons: FC } = ({ children }) => {
   return (

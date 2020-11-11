@@ -10,12 +10,12 @@ export const Home: FC = () => {
 
   return (
     <PageGrid.Container bg="primary" route={routes.home}>
-      <PageGrid.Left>
+      <PageGrid.Left display={['none', 'flex']}>
         <HeaderLink href="portfolio" rotate={-90}>
           {t('portfolio').toUpperCase()}
         </HeaderLink>
       </PageGrid.Left>
-      <PageGrid.Right>
+      <PageGrid.Right display={['none', 'flex']}>
         <HeaderLink href="about" rotate={90}>
           {t('about').toUpperCase()}
         </HeaderLink>
@@ -23,7 +23,7 @@ export const Home: FC = () => {
       <PageGrid.Center color="white">
         <CenterContent />
       </PageGrid.Center>
-      <PageGrid.Bottom>
+      <PageGrid.Bottom display={['none', 'flex']}>
         <HeaderLink href="skills">{t('skills').toUpperCase()}</HeaderLink>
       </PageGrid.Bottom>
     </PageGrid.Container>
