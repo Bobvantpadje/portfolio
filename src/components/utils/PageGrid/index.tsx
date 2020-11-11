@@ -27,7 +27,7 @@ const Bottom: FC<IBoxProps> = ({ children, ...args }) => (
 
 const Center: FC<IBoxProps> = ({ children, ...args }) => {
   return (
-    <MotionBox gridRow={2} gridColumn={2} {...args} overflow="auto">
+    <MotionBox gridRow={2} gridColumn={2} {...args}>
       {children}
     </MotionBox>
   );

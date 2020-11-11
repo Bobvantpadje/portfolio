@@ -14,7 +14,7 @@ const menuItems: HamburgerMenu.MenuItem[] = [
 export const Header: FC = () => {
   const { t } = useTranslation();
   return (
-    <Box zIndex={2} position="fixed" width="100%" height={['6rem']} color="white" display="flex" alignItems="center" px={[3]} bg="inherit">
+    <Box zIndex={2} position="fixed" width="100%" height={['6rem']} color="white" display="flex" alignItems="center" px={[3]}>
       <TextHeader variant="h4">{t('name').toUpperCase()}</TextHeader>
       <Box ml="auto">
         <HamburgerMenu menuItems={menuItems} />
