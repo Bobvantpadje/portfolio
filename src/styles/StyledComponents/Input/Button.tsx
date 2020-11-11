@@ -58,4 +58,3 @@ Button.defaultProps = {
   px: [5],
   type: 'button'
 };
-

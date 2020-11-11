@@ -27,11 +27,19 @@ export const HamburgerMenu: React.FC<IHamburgerMenuProps> = ({ menuItems }) => {
   //   ReactDOM
   return (
     <Box display="flex" alignItems="center" justifyContent="flex-end">
-      <Button variant="invisible" cursor="pointer" zIndex={2} onClick={() => setShowMenu((showMenu) => !showMenu)}>
+      <IconWrapperButton onClick={() => setShowMenu((showMenu) => !showMenu)}>
         {/* <HamburgerIcon /> */}
         <AnimatedBurgerIcon isOpen={showMenu} />
-      </Button>
+      </IconWrapperButton>
       <OverlayMenu show={showMenu} items={menuItems} />
     </Box>
   );
+};
+const IconWrapperButton = styled(Button)``;
+IconWrapperButton.defaultProps = {
+  variant: 'invisible',
+  cursor: 'pointer',
+  bg: 'transparent',
+  zIndex: 2,
+  px: 3
 };
