@@ -1,29 +1,33 @@
 import styled from '@emotion/styled';
 import { IBoxProps } from '@types';
 import { useHistoryContext } from 'context/historyContext';
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { MotionBox } from 'styles/StyledComponents/Animated/MotionBox';
 import routes from 'utils/contants/routes';
+import { useViewHeight } from 'utils/hooks/useViewHeight';
+import Div100vh from 'react-div-100vh';
 
 export const AnimatedPageContainer: FC<IBoxProps & { route: keyof typeof routes }> = ({ children, route, ...args }) => {
   const history = useHistoryContext();
   const prevRoute = history[history.length - 1];
 
   return (
-    <GridContainer
-      custom={prevRoute}
-      variants={variants[route]}
-      width="100%"
-      height="100vh"
-      position="absolute"
-      top={0}
-      transition={{ duration: 1 }}
-      initial="initial"
-      animate="center"
-      exit="exit"
-      {...args}>
-      {children}
-    </GridContainer>
+    <Div100vh>
+      <GridContainer
+        custom={prevRoute}
+        variants={variants[route]}
+        width="100%"
+        height="100%"
+        position="absolute"
+        top={0}
+        transition={{ duration: 1 }}
+        initial="initial"
+        animate="center"
+        exit="exit"
+        {...args}>
+        {children}
+      </GridContainer>
+    </Div100vh>
   );
 };
 
@@ -61,5 +65,5 @@ const GridContainer = styled(MotionBox)``;
 GridContainer.defaultProps = {
   display: 'grid',
   gridTemplateColumns: ['1rem auto 1rem', `${ROW_HEIGHT} auto ${ROW_HEIGHT}`],
-  gridTemplateRows: `${ROW_HEIGHT} calc(100vh - 12rem) ${ROW_HEIGHT}`
+  gridTemplateRows: `${ROW_HEIGHT} calc(100% - 12rem) ${ROW_HEIGHT}`
 };
