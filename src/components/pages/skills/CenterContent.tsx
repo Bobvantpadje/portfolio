@@ -5,8 +5,10 @@ import { Box } from 'styles/StyledComponents/Box';
 import { Header } from 'styles/StyledComponents/Text/Header';
 import { Paragraph } from 'styles/StyledComponents/Text/Paragraph';
 import { SkillContainer } from './SkillContainer';
+
 export const CenterContent: FC = () => {
   const { t } = useTranslation();
+
   return (
     <Box textAlign="center" gridRow="1 / span 3" gridColumn="1 / span 3" py={ROW_HEIGHT} px={[3, ROW_HEIGHT]} overflow="auto">
       <Header>{t('skills')}</Header>

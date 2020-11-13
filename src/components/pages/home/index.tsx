@@ -4,11 +4,11 @@ import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import routes from 'utils/contants/routes';
 import { CenterContent } from './CenterContent';
-import { BottomContent } from './BottomContent';
+import { useSwipeScrollDisabler } from 'utils/hooks/useSwipeScrollDisabler';
 
 export const Home: FC = () => {
   const { t } = useTranslation();
-
+  useSwipeScrollDisabler();
   return (
     <PageGrid.Container bg="primary" route={routes.home}>
       <PageGrid.Left display={['none', 'flex']}>
