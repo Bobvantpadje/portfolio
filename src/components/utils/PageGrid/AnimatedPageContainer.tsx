@@ -4,7 +4,6 @@ import { useHistoryContext } from 'context/historyContext';
 import { FC, useEffect, useState } from 'react';
 import { MotionBox } from 'styles/StyledComponents/Animated/MotionBox';
 import routes from 'utils/contants/routes';
-import { useViewHeight } from 'utils/hooks/useViewHeight';
 import Div100vh from 'react-div-100vh';
 
 export const AnimatedPageContainer: FC<IBoxProps & { route: keyof typeof routes }> = ({ children, route, ...args }) => {
