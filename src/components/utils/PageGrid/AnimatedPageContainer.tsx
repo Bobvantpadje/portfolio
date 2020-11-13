@@ -15,7 +15,12 @@ export const AnimatedPageContainer: FC<IBoxProps & { route: keyof typeof routes 
     <Div100vh>
       <GridContainer
         custom={prevRoute}
-        variants={variants[route]}
+        // variants={variants[route]}
+        variants={{
+          initial: { opacity: 0 },
+          center: { opacity: 1 },
+          exit: { opacity: 0 }
+        }}
         width="100%"
         height="100%"
         position="absolute"
@@ -31,35 +36,6 @@ export const AnimatedPageContainer: FC<IBoxProps & { route: keyof typeof routes 
   );
 };
 
-const variants = {
-  [routes.home]: {
-    initial: (prevRoute: string) => {
-      if (prevRoute === routes.skills) return { y: '-100vh', opacity: 0 };
-      if (prevRoute === routes.about) return { x: '-100%', opacity: 0 };
-      if (prevRoute === routes.portfolio) return { x: '-100%', opacity: 0 };
-      return { opacity: 0 };
-    },
-    center: () => ({ x: '0vw', y: '0vh', zIndex: 1, opacity: 1 }),
-    exit: () => ({ opacity: 0, zIndex: 0 })
-  },
-  [routes.about]: {
-    initial: (prevRoute: string) => {
-      if (!prevRoute) return { opacity: 0 };
-      return { x: '100%', opacity: 0 };
-    },
-    center: () => ({ x: '0vw', zIndex: 1, opacity: 1 }),
-    exit: () => ({ opacity: 0, zIndex: 0 })
-  },
-  [routes.skills]: {
-    initial: (prevRoute: string) => {
-      if (!prevRoute) return { opacity: 0 };
-      return { y: '100vh', opacity: 0 };
-    },
-    center: () => ({ y: '0vw', zIndex: 1, opacity: 1 }),
-    exit: () => ({ opacity: 0, zIndex: 0 })
-  }
-};
-
 export const ROW_HEIGHT = '6rem';
 const GridContainer = styled(MotionBox)``;
 GridContainer.defaultProps = {
@@ -67,3 +43,32 @@ GridContainer.defaultProps = {
   gridTemplateColumns: ['1rem auto 1rem', `${ROW_HEIGHT} auto ${ROW_HEIGHT}`],
   gridTemplateRows: `${ROW_HEIGHT} calc(100% - 12rem) ${ROW_HEIGHT}`
 };
+
+// const variants = {
+//   [routes.home]: {
+//     initial: (prevRoute: string) => {
+//       if (prevRoute === routes.skills) return { y: '-100vh', opacity: 0 };
+//       if (prevRoute === routes.about) return { x: '-100%', opacity: 0 };
+//       if (prevRoute === routes.portfolio) return { x: '-100%', opacity: 0 };
+//       return { opacity: 0 };
+//     },
+//     center: () => ({ x: '0vw', y: '0vh', zIndex: 1, opacity: 1 }),
+//     exit: () => ({ opacity: 0, x: '0vw', y: '0vh' })
+//   },
+//   [routes.about]: {
+//     initial: (prevRoute: string) => {
+//       if (!prevRoute) return { opacity: 0 };
+//       return { x: '100%', opacity: 0 };
+//     },
+//     center: () => ({ x: '0vw', zIndex: 1, opacity: 1 }),
+//     exit: () => ({ opacity: 0, zIndex: 0 })
+//   },
+//   [routes.skills]: {
+//     initial: (prevRoute: string) => {
+//       if (!prevRoute) return { opacity: 0 };
+//       return { y: '100vh', opacity: 0 };
+//     },
+//     center: () => ({ y: '0vw', zIndex: 1, opacity: 1 }),
+//     exit: () => ({ opacity: 0, zIndex: 0 })
+//   }
+// };
