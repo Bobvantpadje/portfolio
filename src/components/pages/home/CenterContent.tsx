@@ -1,4 +1,5 @@
 import { ImageCircle } from 'components/utils/ImageCircle';
+import { Link } from 'components/utils/Link';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { MotionBox } from 'styles/StyledComponents/Animated/MotionBox';
@@ -35,7 +36,9 @@ export const CenterContent: FC = () => {
       </MotionBox>
       <Box textAlign="center" display={['block', 'none']}>
         <Box width="100%">
-          <Button>{t('showMore')}</Button>
+          <Link href="about">
+            <Button>{t('showMore')}</Button>
+          </Link>
         </Box>
         <Box width="100%" textAlign="center" mt={3}>
           01 02 03 04
