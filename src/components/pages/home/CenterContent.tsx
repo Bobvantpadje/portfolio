@@ -6,6 +6,7 @@ import { MotionBox } from 'styles/StyledComponents/Animated/MotionBox';
 import { Box } from 'styles/StyledComponents/Box';
 import { Button } from 'styles/StyledComponents/Input/Button';
 import { useNextRoute } from 'utils/hooks/useNextRoute';
+import { useRouteByScrollDirection } from 'utils/hooks/useRouteByScrollDirection';
 
 const exitAnimation = (nextRoute: string) => {
   if (nextRoute === '/skills') return { y: '-20vh' };
@@ -14,6 +15,7 @@ const exitAnimation = (nextRoute: string) => {
 };
 
 export const CenterContent: FC = () => {
+  useRouteByScrollDirection({ down: 'skills' });
   const nextRoute = useNextRoute();
   const { t } = useTranslation();
 
