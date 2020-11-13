@@ -5,17 +5,15 @@ import { IBoxProps } from '../Box';
 const variants = {
   primary: {
     backgroundSize: '200% 100%',
-    backgroundPosition: 'right bottom',
-    bg: 'primary',
+    bg: 'complementary',
     border: '1px solid',
     borderColor: 'complementary',
-    color: 'complementary',
+    color: 'primary',
     '&:hover': {
-      backgroundPosition: 'left bottom',
-      color: 'primary'
+      color: 'complementary'
     },
     '&:active': {
-      background: 'complementary',
+      background: 'primary',
       transform: 'scale(0.9)'
     }
   },
@@ -43,11 +41,11 @@ export const Button = styled('button')<IButtonProps>(
     '&:hover': {
       cursor: 'pointer'
     },
-    outline: 'none',
-    transition: 'background .3s ease-in, transform .1s',
-    background: `linear-gradient(to right, ${props.theme.colors.complementary} 50%, ${props.theme.colors.primary} 50%)`,
-    backgroundSize: '200% 100%',
-    backgroundPosition: 'right bottom'
+    outline: 'none'
+    // transition: 'background .3s ease-in, transform .1s',
+    // background: `linear-gradient(to right, ${props.theme.colors.complementary} 50%, ${props.theme.colors.primary} 50%)`,
+    // backgroundSize: '200% 100%',
+    // backgroundPosition: 'right bottom'
   })
 );
 
@@ -56,5 +54,6 @@ Button.defaultProps = {
   borderRadius: '50px',
   py: [3],
   px: [5],
-  type: 'button'
+  type: 'button',
+  fontWeight: 7
 };

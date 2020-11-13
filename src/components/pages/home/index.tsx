@@ -4,6 +4,7 @@ import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import routes from 'utils/contants/routes';
 import { CenterContent } from './CenterContent';
+import { BottomContent } from './BottomContent';
 
 export const Home: FC = () => {
   const { t } = useTranslation();
@@ -20,7 +21,7 @@ export const Home: FC = () => {
           {t('about').toUpperCase()}
         </HeaderLink>
       </PageGrid.Right>
-      <PageGrid.Center color="white">
+      <PageGrid.Center color="white" gridRow={['2 / span 3', 2]}>
         <CenterContent />
       </PageGrid.Center>
       <PageGrid.Bottom display={['none', 'flex']}>
