@@ -1,4 +1,5 @@
 import { Link } from 'components/utils/Link';
+import { PageGrid } from 'components/utils/PageGrid';
 import { ROW_HEIGHT } from 'components/utils/PageGrid/AnimatedPageContainer';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -12,19 +13,9 @@ import { useSwipeScrollDisabler } from 'utils/hooks/useSwipeScrollDisabler';
 
 export const CenterContent: FC = () => {
   const { t } = useTranslation();
-  useRouteByScrollDirection({ up: 'skills' });
-  useSwipeScrollDisabler();
 
   return (
-    <MotionBox
-      textAlign="center"
-      height="100%"
-      display="flex"
-      flexDirection="column"
-      justifyContent="space-between"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 2 }}>
+    <>
       <Box>
         <Header>{t('portfolio')}</Header>
         <Paragraph mt={[3, 5]} mb={[3, 6]}>
@@ -46,6 +37,6 @@ export const CenterContent: FC = () => {
           01 02 03 04
         </Box>
       </Box>
-    </MotionBox>
+    </>
   );
 };
