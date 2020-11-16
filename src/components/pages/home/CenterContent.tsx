@@ -1,5 +1,6 @@
 import { ImageCircle } from 'components/utils/ImageCircle';
 import { Link } from 'components/utils/Link';
+import { MobileNavigation } from 'components/utils/MobileNavigation';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { MotionBox } from 'styles/StyledComponents/Animated/MotionBox';
@@ -20,7 +21,7 @@ export const CenterContent: FC = () => {
   const { t } = useTranslation();
 
   return (
-    <Box height="100%" display="flex" flexDirection="column" justifyContent="space-between" pb={3}>
+    <Box height="100%" display="flex" flexDirection="column" justifyContent="space-between">
       <MotionBox
         display="flex"
         justifyContent="center"
@@ -42,9 +43,7 @@ export const CenterContent: FC = () => {
             <Button>{t('showMore')}</Button>
           </Link>
         </Box>
-        <Box width="100%" textAlign="center" mt={3}>
-          01 02 03 04
-        </Box>
+        <MobileNavigation />
       </Box>
     </Box>
   );

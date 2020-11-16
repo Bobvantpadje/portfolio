@@ -1,4 +1,5 @@
 import { Link } from 'components/utils/Link';
+import { MobileNavigation } from 'components/utils/MobileNavigation';
 import { PageGrid } from 'components/utils/PageGrid';
 import { ROW_HEIGHT } from 'components/utils/PageGrid/AnimatedPageContainer';
 import React, { FC } from 'react';
@@ -33,9 +34,7 @@ export const CenterContent: FC = () => {
             <Button>{t('showMore')}</Button>
           </Link>
         </Box>
-        <Box width="100%" textAlign="center" mt={3}>
-          01 02 03 04
-        </Box>
+        <MobileNavigation />
       </Box>
     </>
   );

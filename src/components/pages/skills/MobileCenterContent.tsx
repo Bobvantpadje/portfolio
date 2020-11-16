@@ -31,9 +31,6 @@ export const MobileCenterContent: FC = () => {
           </Link>
         </Box>
         <MobileNavigation />
-        {/* <Box width="100%" textAlign="center" mt={3}>
-          01 02 03 04
-        </Box> */}
       </Box>
     </>
   );
