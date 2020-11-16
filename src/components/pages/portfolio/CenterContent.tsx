@@ -8,11 +8,12 @@ import { Button } from 'styles/StyledComponents/Input/Button';
 import { Header } from 'styles/StyledComponents/Text/Header';
 import { Paragraph } from 'styles/StyledComponents/Text/Paragraph';
 import { useRouteByScrollDirection } from 'utils/hooks/useRouteByScrollDirection';
-import { SkillContainer } from './SkillContainer';
+import { useSwipeScrollDisabler } from 'utils/hooks/useSwipeScrollDisabler';
 
-export const MobileCenterContent: FC = () => {
+export const CenterContent: FC = () => {
   const { t } = useTranslation();
-  useRouteByScrollDirection({ up: '/', down: 'portfolio' });
+  useRouteByScrollDirection({ up: 'skills' });
+  useSwipeScrollDisabler();
 
   return (
     <MotionBox
@@ -25,7 +26,11 @@ export const MobileCenterContent: FC = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 2 }}>
       <Box>
-        <Header>{t('skills')}</Header>
+        <Header>{t('portfolio')}</Header>
+        <Paragraph mt={[3, 5]} mb={[3, 6]}>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, ea dignissimos voluptatum velit quam asperiores distinctio quae
+          porro neque, tempora qui laudantium ad, dolorem maxime recusandae harum excepturi voluptates odio!
+        </Paragraph>
         <Paragraph mt={[3, 5]} mb={[3, 6]}>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, ea dignissimos voluptatum velit quam asperiores distinctio quae
           porro neque, tempora qui laudantium ad, dolorem maxime recusandae harum excepturi voluptates odio!
