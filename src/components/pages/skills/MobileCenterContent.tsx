@@ -15,15 +15,7 @@ export const MobileCenterContent: FC = () => {
   useRouteByScrollDirection({ up: '/', down: 'portfolio' });
 
   return (
-    <MotionBox
-      textAlign="center"
-      height="100%"
-      display="flex"
-      flexDirection="column"
-      justifyContent="space-between"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 2 }}>
+    <>
       <Box>
         <Header>{t('skills')}</Header>
         <Paragraph mt={[3, 5]} mb={[3, 6]}>
@@ -41,6 +33,6 @@ export const MobileCenterContent: FC = () => {
           01 02 03 04
         </Box>
       </Box>
-    </MotionBox>
+    </>
   );
 };

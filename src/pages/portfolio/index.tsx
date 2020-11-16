@@ -7,7 +7,7 @@ import routes from 'utils/contants/routes';
 const Portfolio: FC = () => {
   return (
     <PageGrid.Container bg="primary" route={routes.portfolio}>
-      <MobileHomeContainer down="skills">
+      <MobileHomeContainer up="skills">
         <CenterContent />
       </MobileHomeContainer>
     </PageGrid.Container>

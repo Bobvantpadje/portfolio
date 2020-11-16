@@ -1,6 +1,7 @@
 import { CenterContent } from 'components/pages/skills/CenterContent';
 import { MobileCenterContent } from 'components/pages/skills/MobileCenterContent';
 import { AnimatedImage } from 'components/utils/AnimatedImage';
+import { MobileHomeContainer } from 'components/utils/MobileHomeContainer';
 import { PageGrid } from 'components/utils/PageGrid';
 import { useHistoryContext } from 'context/historyContext';
 import { useViewportScroll } from 'framer-motion';
@@ -20,9 +21,9 @@ const Skills: FC = () => {
   if (windowSize.width < 768) {
     return (
       <PageGrid.Container bg="primary" route={routes.skills}>
-        <PageGrid.Center gridRow="2 / span 3">
+        <MobileHomeContainer>
           <MobileCenterContent />
-        </PageGrid.Center>
+        </MobileHomeContainer>
       </PageGrid.Container>
     );
   }
