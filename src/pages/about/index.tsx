@@ -10,21 +10,24 @@ import { Header } from 'styles/StyledComponents/Text/Header';
 import { Paragraph } from 'styles/StyledComponents/Text/Paragraph';
 import routes from 'utils/contants/routes';
 import { PageGrid } from 'components/utils/PageGrid';
-import Skills from 'pages/skills';
+// import Skills from 'pages/skills';
+import { Experience } from 'components/pages/experience';
+import { CenterContent as Skills } from 'components/pages/skills/CenterContent';
 
 const loremText =
   'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit repudiandae tenetur atque sint labore cum, illum architecto officiis modi possimus, dolor adipisci laboriosam necessitatibus quas molestiae maxime voluptatibus? Numquam, sint. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores sit recusandae nulla tempora quibusdam distinctio modi minima aliquam sapiente et! Nemo cumque debitis pariatur itaque eius voluptas est deleniti atque. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit repudiandae tenetur atque sint labore cum, illum architecto officiis modi possimus, dolor adipisci laboriosam necessitatibus quas molestiae maxime voluptatibus? Numquam, sint. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores sit recusandae nulla tempora quibusdam distinctio modi minima aliquam sapiente et! Nemo cumque debitis pariatur itaque eius voluptas est deleniti atque.';
 
 const About: FC = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useViewportScroll();
-  const Router = useRouter();
+  // const ref = useRef<HTMLDivElement>(null);
+  // const { scrollYProgress } = useViewportScroll();
+  // const Router = useRouter();
 
   return (
     <PageGrid.Container bg="primary" route={routes.about}>
       <PageGrid.Center>
         <AboutContent />
         <Skills />
+        <Experience />
       </PageGrid.Center>
     </PageGrid.Container>
   );
