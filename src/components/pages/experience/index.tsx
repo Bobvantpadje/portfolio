@@ -18,7 +18,7 @@ export const Experience: FC = () => {
 
 const ExperienceList: FC<{ experiences: IExperience[] }> = ({ experiences }) => {
   return (
-    <Box mt={5}>
+    <Box my={5}>
       {experiences.map((experience, index) => (
         <Box key={index} minHeight="100px" display="flex" mt={2}>
           <LeftLine />
