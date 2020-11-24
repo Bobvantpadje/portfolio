@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Box } from 'styles/StyledComponents/Box';
 import { Header } from 'styles/StyledComponents/Text/Header';
 import { Paragraph } from 'styles/StyledComponents/Text/Paragraph';
-import { IExperience, experiences } from 'utils/contants/experiences';
+import { IExperience, experiences, educations } from 'utils/contants/experiences';
 
 export const Experience: FC = () => {
   const { t } = useTranslation();
@@ -12,13 +12,15 @@ export const Experience: FC = () => {
     <Box>
       <Header>{t('experience')}</Header>
       <ExperienceList experiences={experiences} />
+      <Header>{t('education')}</Header>
+      <ExperienceList experiences={educations} />
     </Box>
   );
 };
 
 const ExperienceList: FC<{ experiences: IExperience[] }> = ({ experiences }) => {
   return (
-    <Box my={5}>
+    <Box my={5} display="inline-block">
       {experiences.map((experience, index) => (
         <Box key={index} minHeight="100px" display="flex" mt={2}>
           <LeftLine />
@@ -26,7 +28,7 @@ const ExperienceList: FC<{ experiences: IExperience[] }> = ({ experiences }) => 
             <Paragraph m={0} fontSize={4} fontWeight={4} lineHeight={3} color="text">
               {experience.role} @ {experience.company}
             </Paragraph>
-            <Paragraph color="text" my={2} fontWeight={2}>
+            <Paragraph color="text" my={2} fontWeight={2} mb={4}>
               {experience.startDate} - {experience.endDate}
             </Paragraph>
           </Box>

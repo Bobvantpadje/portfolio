@@ -29,3 +29,27 @@ export const experiences: IExperience[] = [
     endDate: '01-03-2018'
   }
 ];
+
+export const educations: IExperience[] = [
+  {
+    company: 'Amsterdam University of Applied Science',
+    role: 'Informatics',
+    description: 'beetje software maken',
+    startDate: '01-09-2012',
+    endDate: '01-08-2020'
+  },
+  {
+    company: 'React GraphQL Academy',
+    role: 'Advanced React Development',
+    description: 'lorem',
+    startDate: '01-11-2019',
+    endDate: '03-11-2019'
+  },
+  {
+    company: 'Haarlemmermeer Lyceum',
+    role: 'HAVO - NT/NG',
+    description: 'lorem',
+    startDate: '01-09-2007',
+    endDate: '01-09-2012'
+  }
+];
