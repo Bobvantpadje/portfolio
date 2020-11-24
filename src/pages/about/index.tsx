@@ -10,6 +10,7 @@ import { Header } from 'styles/StyledComponents/Text/Header';
 import { Paragraph } from 'styles/StyledComponents/Text/Paragraph';
 import routes from 'utils/contants/routes';
 import { PageGrid } from 'components/utils/PageGrid';
+import Skills from 'pages/skills';
 
 const loremText =
   'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit repudiandae tenetur atque sint labore cum, illum architecto officiis modi possimus, dolor adipisci laboriosam necessitatibus quas molestiae maxime voluptatibus? Numquam, sint. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores sit recusandae nulla tempora quibusdam distinctio modi minima aliquam sapiente et! Nemo cumque debitis pariatur itaque eius voluptas est deleniti atque. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit repudiandae tenetur atque sint labore cum, illum architecto officiis modi possimus, dolor adipisci laboriosam necessitatibus quas molestiae maxime voluptatibus? Numquam, sint. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores sit recusandae nulla tempora quibusdam distinctio modi minima aliquam sapiente et! Nemo cumque debitis pariatur itaque eius voluptas est deleniti atque.';
@@ -22,7 +23,8 @@ const About: FC = () => {
   return (
     <PageGrid.Container bg="primary" route={routes.about}>
       <PageGrid.Center>
-        <Link href="/">home</Link>
+        <AboutContent />
+        <Skills />
       </PageGrid.Center>
     </PageGrid.Container>
   );
@@ -54,6 +56,20 @@ const About: FC = () => {
 };
 
 export default About;
+
+const AboutContent = () => {
+  return (
+    <Box textAlign="center">
+      <Header>About</Header>
+      <Paragraph>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod sit, delectus dignissimos obcaecati eum quasi nulla. Aut natus ipsa
+        ipsum dicta veritatis dolor eos, maxime, quaerat laudantium magnam at sequi.lorel Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Magni quibusdam sunt vero ab facere odit, vel dignissimos. Dolor, minus quas eum explicabo laudantium ducimus asperiores harum
+        quod exercitationem obcaecati praesentium.
+      </Paragraph>
+    </Box>
+  );
+};
 
 const AboutItem: FC<{ title: string; content: string }> = React.memo(({ title, content }) => {
   return (

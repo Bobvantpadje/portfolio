@@ -20,18 +20,18 @@ const Skills: FC = () => {
 
   if (windowSize.width < 768) {
     return (
-      <PageGrid.Container bg="primary" route={routes.skills}>
-        <MobileHomeContainer>
-          <MobileCenterContent />
-        </MobileHomeContainer>
-      </PageGrid.Container>
+      // <PageGrid.Container bg="primary" route={routes.skills}>
+      <MobileHomeContainer>
+        <MobileCenterContent />
+      </MobileHomeContainer>
+      // </PageGrid.Container>
     );
   }
 
   return (
-    <PageGrid.Container bg="primary" route={routes.skills} display="block">
-      <CenterContent />
-    </PageGrid.Container>
+    // <PageGrid.Container bg="primary" route={routes.skills} display="block">
+    <CenterContent />
+    // </PageGrid.Container>
   );
 };
 
